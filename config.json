@@ -1,0 +1,187 @@
+{
+    "brand": {
+        "name": "nodedCode",
+        "tagline": "ESTABLISHED EXPERTISE, NEW STRUCTURE",
+        "email": "contact@nodedcode.studio",
+        "logoUrl": "",
+        "faviconUrl": "./nodedCode.ico"
+    },
+    "text": {
+        "hero_h1_top": "BUILT WITH",
+        "hero_h1_bot": "INTELLIGENCE.",
+        "hero_desc": "Premium digital architectures at lightspeed",
+        "hero_btn": "CONTACT US",
+        "expertise_h2": "OUR CAPABILITIES",
+        "process_h2_top": "WHY",
+        "process_h2_bot": "CHOOSE US",
+        "process_btn": "DISCUSS YOUR NEEDS",
+        "contact_h2_top": "READY TO",
+        "contact_h2_bot": "SCALE?",
+        "contact_desc": "Secure your slot in our production queue.",
+        "verify_h2": "AUTHENTICITY CHECK",
+        "verify_desc": "Verify authenticity against our public database. Verifieable: Email Address, Employee ID, Document ID and Project ID. We won't take responsibility for interacting with anything that is inactive/expired or not available in our database.",
+        "terms_title": "Terms & Conditions",
+        "terms_content": "General use of this website is subject to standard digital policies. However, each specific project engaged with us will be governed by its own distinct Terms & Conditions. These project-specific terms depend heavily on the task, scope, and specific situational requirements, and will be legally established in the formal contract signed by both parties prior to the commencement of any work.",
+        "privacy_title": "Privacy Policy",
+        "privacy_content": "We respect your privacy. We do not sell your data. Any email or information submitted for project inquiries is kept strictly confidential and is used solely for the purpose of communicating regarding your project.",
+        "refund_title": "Refund Policy",
+        "refund_content": "We do not offer refunds once work is completed. Any project cancellation should be notified early. Cancellations may be eligible for a partial refund, heavily depending on the time and resources already spent on the project prior to the notice."
+    },
+    "remote": {
+        "verificationUrl": "https://opensheet.elk.sh/1jYnJfPR7sZ1P5sFwpQWwMnFKIJt2FNWqcUFPLmVZM2E/Sheet1",
+        "careersUrl": "https://opensheet.elk.sh/13bakIus6wLbEOgKCvk9KihG41QosPp6ZdwwF8rxZoFM/Sheet1"
+    },
+    "nav": [
+        {
+            "id": "home",
+            "label": "Home"
+        },
+        {
+            "id": "expertise",
+            "label": "Services"
+        },
+        {
+            "id": "process",
+            "label": "Why Us"
+        },
+        {
+            "id": "contact",
+            "label": "Contact"
+        }
+    ],
+    "footerLinks": [
+        {
+            "id": "careers",
+            "label": "Careers"
+        },
+        {
+            "id": "verify",
+            "label": "Verify Authenticity"
+        },
+        {
+            "id": "terms",
+            "label": "Terms & Conditions"
+        },
+        {
+            "id": "privacy",
+            "label": "Privacy"
+        },
+        {
+            "id": "refund",
+            "label": "Refund Policy"
+        }
+    ],
+    "socials": [
+        {
+            "icon": "Linkedin",
+            "link": "https://www.linkedin.com/company/nodedCode"
+        },
+        {
+            "icon": "Instagram",
+            "link": "https://www.instagram.com/nodedCode/"
+        },
+        {
+            "icon": "Facebook",
+            "link": "https://www.facebook.com/nodedCode/"
+        },
+        {
+            "icon": "Mail",
+            "link": "mailto:contact@nodedcode.studio"
+        }
+    ],
+    "services": [
+        {
+            "title": "AI Augmented Development",
+            "icon": "Circle",
+            "gradient": "from-cyan-500 to-blue-600"
+        },
+        {
+            "title": "Website Development",
+            "icon": "Circle",
+            "gradient": "from-cyan-500 to-blue-600"
+        },
+        {
+            "title": "UI/UX Design",
+            "icon": "Circle",
+            "gradient": "from-cyan-500 to-blue-600"
+        },
+        {
+            "title": "Smart Contract Development",
+            "icon": "Circle",
+            "gradient": "from-cyan-500 to-blue-600"
+        },
+        {
+            "title": "Web3 Development",
+            "icon": "Circle",
+            "gradient": "from-cyan-500 to-blue-600"
+        },
+        {
+            "title": "WordPress Development",
+            "icon": "Circle",
+            "gradient": "from-cyan-500 to-blue-600"
+        },
+        {
+            "title": "Prompt Engineering",
+            "icon": "Circle",
+            "gradient": "from-cyan-500 to-blue-600"
+        },
+        {
+            "title": "Manual Testing",
+            "icon": "Circle",
+            "gradient": "from-cyan-500 to-blue-600"
+        },
+        {
+            "title": "Android Development",
+            "icon": "Circle",
+            "gradient": "from-cyan-500 to-blue-600"
+        },
+        {
+            "title": "Website Audit",
+            "icon": "Circle",
+            "gradient": "from-cyan-500 to-blue-600"
+        },
+        {
+            "title": "Project Support",
+            "icon": "Circle",
+            "gradient": "from-cyan-500 to-blue-600"
+        },
+        {
+            "title": "And Many More...",
+            "icon": "Circle",
+            "gradient": "from-cyan-500 to-blue-600"
+        }
+    ],
+    "processSteps": [
+        {
+            "icon": "Circle",
+            "title": "AI Optimization",
+            "subtitle": "Efficiency",
+            "desc": "We utilize generative AI to handle 50-80% of the groundwork. This drastically cuts costs while maintaining elite code quality."
+        },
+        {
+            "icon": "Circle",
+            "title": "Flexible Scope",
+            "subtitle": "Any Size",
+            "desc": "From simple one-page fixes to medium-complexity platform builds. No project is too small or too big for our adaptive workflow."
+        },
+        {
+            "icon": "Circle",
+            "title": "Flexible Payments",
+            "subtitle": "Global & Secure",
+            "desc": "We accept various payment services like wire bank, crypto, and escrow with Fiverr or Upwork via our agent profiles."
+        }
+    ],
+    "verification_fallback": [
+        {
+            "id": "NCS0001",
+            "issued_to": "Md Sejabur Rahat (Lead Software Engineer)",
+            "status": "ACTIVE"
+        }
+    ],
+    "careers_fallback": [
+        {
+            "title": "NO OPENINGS RIGHT NOW",
+            "link": "#"
+        }
+    ]
+}
