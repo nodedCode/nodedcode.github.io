@@ -170,10 +170,12 @@
             "subtitle": "Global & Secure",
             "desc": "We accept various payment services like wire transfer, digital currencies, and escrow with Fiverr or Upwork via our agent profiles."
         },
+        {
             "icon": "Circle",
             "title": "Registered Agency",
             "subtitle": "Global & Secure",
             "desc": "We are registered in Bangladesh. Our Provisional BBID: AA008810168T."
+        }
     ],
     "verification_fallback": [
         {
@@ -190,3 +192,4 @@
     ]
 
 }
+
