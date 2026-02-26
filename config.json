@@ -162,18 +162,22 @@
             "icon": "Circle",
             "title": "Flexible Scope",
             "subtitle": "Any Size",
-            "desc": "From simple one-page fixes to medium-complexity platform builds. No project is too small or too big for our adaptive workflow."
+            "desc": "From simple one-page fixes to complex platform builds. No project is too small or too big for our adaptive workflow."
         },
         {
             "icon": "Circle",
             "title": "Flexible Payments",
             "subtitle": "Global & Secure",
-            "desc": "We accept various payment services like wire bank, crypto, and escrow with Fiverr or Upwork via our agent profiles."
-        }
+            "desc": "We accept various payment services like wire transfer, digital currencies, and escrow with Fiverr or Upwork via our agent profiles."
+        },
+            "icon": "Circle",
+            "title": "Registered Agency",
+            "subtitle": "Global & Secure",
+            "desc": "We are registered in Bangladesh. Our Provisional BBID: AA008810168T."
     ],
     "verification_fallback": [
         {
-            "id": "NCS0001",
+            "id": "NCS4041",
             "issued_to": "Md Sejabur Rahat (Lead Software Engineer)",
             "status": "ACTIVE"
         }
@@ -184,4 +188,5 @@
             "link": "#"
         }
     ]
+
 }
