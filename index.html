@@ -4,9 +4,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <nodedCode>
-    </title>
+
+    <!-- Primary Technical SEO Meta Tags -->
+    <title>nodedCode | ESTABLISHED EXPERTISE, NEW STRUCTURE</title>
+    <meta name="title" content="nodedCode | ESTABLISHED EXPERTISE, NEW STRUCTURE">
+    <meta name="description"
+        content="Premium digital architectures at lightspeed. We specialize in AI Augmented Development, Web3, Smart Contracts, UI/UX, and complex software integrations.">
+    <meta name="keywords"
+        content="AI, Web Development, Agency, React, AI Integration, Web3, Smart Contracts, UI/UX, Software Studio, nodedCode">
+    <meta name="author" content="nodedCode">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <link rel="canonical" href="https://nodedcode.studio/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nodedcode.studio/">
+    <meta property="og:title" content="nodedCode | ESTABLISHED EXPERTISE, NEW STRUCTURE">
+    <meta property="og:description"
+        content="Premium digital architectures at lightspeed. We specialize in AI Augmented Development, Web3, Smart Contracts, UI/UX, and complex software integrations.">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1620121692029-d088224ddc74?q=80&w=2832&auto=format&fit=crop">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://nodedcode.studio/">
+    <meta property="twitter:title" content="nodedCode | ESTABLISHED EXPERTISE, NEW STRUCTURE">
+    <meta property="twitter:description"
+        content="Premium digital architectures at lightspeed. We specialize in AI Augmented Development, Web3, Smart Contracts, UI/UX, and complex software integrations.">
+    <meta property="twitter:image"
+        content="https://images.unsplash.com/photo-1620121692029-d088224ddc74?q=80&w=2832&auto=format&fit=crop">
+
+    <!-- JSON-LD Structured Data (Organization/ProfessionalService) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "nodedCode",
+      "image": "https://images.unsplash.com/photo-1620121692029-d088224ddc74?q=80&w=2832&auto=format&fit=crop",
+      "description": "Premium digital architectures at lightspeed. We specialize in AI Augmented Development, Web3, Smart Contracts, UI/UX, and complex software integrations.",
+      "url": "https://nodedcode.studio/",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "contact@nodedcode.studio",
+        "contactType": "Customer Support"
+      }
+    }
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
@@ -67,6 +111,18 @@
             }
         }
 
+        @keyframes pulseText {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
         .perspective {
             perspective: 1000px;
         }
@@ -101,7 +157,47 @@
 </head>
 
 <body>
-    <div id="root"></div>
+    <!-- 
+      Pre-Mount Boot Environment
+      This handles the 1-second delay before React initializes.
+      The sr-only class ensures search engines read the text, but humans do not see it.
+    -->
+    <div id="root">
+        <div
+            style="display: flex; align-items: center; justify-content: center; height: 100vh; width: 100vw; background-color: #020202;">
+            <p
+                style="color: #22d3ee; font-family: 'JetBrains Mono', monospace; font-size: 14px; animation: pulseText 1.5s infinite;">
+                > INITIALIZING_CORE_SYSTEMS...
+            </p>
+        </div>
+        <div class="sr-only">
+            <h1>nodedCode | ESTABLISHED EXPERTISE, NEW STRUCTURE</h1>
+            <h2>Built with Intelligence.</h2>
+            <p>Premium digital architectures at lightspeed.</p>
+            <h3>Our Capabilities</h3>
+            <ul>
+                <li>AI Augmented Development</li>
+                <li>Website Development</li>
+                <li>UI/UX Design</li>
+                <li>Smart Contract Development</li>
+                <li>Web3 Development</li>
+                <li>WordPress Development</li>
+                <li>Prompt Engineering</li>
+                <li>Android Development</li>
+                <li>Website Audit & Project Support</li>
+            </ul>
+            <h3>Our Works</h3>
+            <p>We build Fintech dashboards, AI content generators, SaaS platforms, and deploy custom intelligent
+                architectures globally.</p>
+            <h3>Why Choose Us</h3>
+            <p>We utilize generative AI to handle 50-80% of the groundwork. This drastically cuts costs while
+                maintaining elite code quality. We accept various payment services like wire transfer, digital
+                currencies, and escrow with Fiverr or Upwork via our agent profiles. Registered in Bangladesh.
+                Provisional BBID: AA008810168T.</p>
+            <p>Contact us: contact@nodedcode.studio</p>
+        </div>
+    </div>
+
     <script type="text/babel" data-type="module">
         import React, { useState, useEffect, useRef, createContext, useContext } from 'react';
         import ReactDOM from 'react-dom/client';
@@ -110,33 +206,80 @@
             Menu, X, Aperture, ChevronRight, ShieldCheck, Search,
             CheckCircle, AlertCircle, Clock, Briefcase, Lock, Terminal,
             Database, Fingerprint, Bot, Rocket, Layers, Code, Hash, Smartphone,
-            Circle, Box, ExternalLink
+            Circle, Box, ExternalLink, ArrowUpRight
         } from 'lucide-react';
 
-        /** * Application State Configuration Fallback
-         * Utilized if external config.json fails to load or is uninitialized.
-         */
+        /** State Configuration Fallback Array */
         const DEFAULT_CONFIG = {
             brand: { name: "nodedCode", tagline: "ESTABLISHED EXPERTISE, NEW STRUCTURE", email: "contact@nodedcode.studio", logoUrl: "", faviconUrl: "./nodedCode.ico" },
             text: {
-                hero_h1_top: "BUILT WITH", hero_h1_bot: "INTELLIGENCE.", hero_desc: "Loading configuration...", hero_btn: "CONTACT US",
-                expertise_h2: "OUR CAPABILITIES", process_h2_top: "WHY", process_h2_bot: "CHOOSE US", process_btn: "START PROJECT",
-                contact_h2_top: "READY TO", contact_h2_bot: "SCALE?", contact_desc: "Secure your slot.",
-                verify_h2: "AUTHENTICITY CHECK", verify_desc: "Verify identity.",
-                terms_title: "Terms & Conditions", terms_content: "Loading...",
-                privacy_title: "Privacy Policy", privacy_content: "Loading...",
-                refund_title: "Refund Policy", refund_content: "Loading...",
+                hero_h1_top: "BUILT WITH", hero_h1_bot: "INTELLIGENCE.", hero_desc: "Premium digital architectures at lightspeed", hero_btn: "CONTACT US",
+                expertise_h2: "OUR CAPABILITIES", process_h2_top: "WHY", process_h2_bot: "CHOOSE US", process_btn: "DISCUSS YOUR NEEDS",
+                contact_h2_top: "READY TO", contact_h2_bot: "SCALE?", contact_desc: "Secure your slot in our production queue.",
+                verify_h2: "AUTHENTICITY CHECK", verify_desc: "Verify authenticity against our public database. Verifiable: Email Address, Employee ID, Document ID and Project ID. We won't take responsibility for interacting with anything that is inactive/expired or not available in our database.",
+                terms_title: "Terms & Conditions", terms_content: "General use of this website is subject to standard digital policies. However, each specific project engaged with us will be governed by its own distinct Terms & Conditions. These project-specific terms depend heavily on the task, scope, and specific situational requirements, and will be legally established in the formal contract signed by both parties prior to the commencement of any work.",
+                privacy_title: "Privacy Policy", privacy_content: "We respect your privacy. We do not sell your data. Any email or information submitted for project inquiries is kept strictly confidential and is used solely for the purpose of communicating regarding your project.",
+                refund_title: "Refund Policy", refund_content: "We do not offer refunds once work is completed. Any project cancellation should be notified early. Cancellations may be eligible for a partial refund, heavily depending on the time and resources already spent on the project prior to the notice.",
+                career_h2: "ACCESS DENIED", career_desc: "Capacity full.",
+                works_h2: "OUR WORKS", works_desc: "A selection of architectures deployed by our collective."
             },
-            remote: { verificationUrl: "https://opensheet.elk.sh/1jYnJfPR7sZ1P5sFwpQWwMnFKIJt2FNWqcUFPLmVZM2E/Sheet1", careersUrl: "https://opensheet.elk.sh/13bakIus6wLbEOgKCvk9KihG41QosPp6ZdwwF8rxZoFM/Sheet1" },
-            nav: [], footerLinks: [], socials: [], services: [], processSteps: [], verification_fallback: [], careers_fallback: []
+            remote: { verificationUrl: "https://opensheet.elk.sh/1jYnJfPR7sZ1P5sFwpQWwMnFKIJt2FNWqcUFPLmVZM2E/Sheet1", careersUrl: "https://opensheet.elk.sh/13bakIus6wLbEOgKCvk9KihG41QosPp6ZdwwF8rxZoFM/Sheet1", worksUrl: "" },
+            nav: [
+                { id: "home", label: "Home" },
+                { id: "expertise", label: "Services" },
+                { id: "process", label: "Why Us" },
+                { id: "works", label: "Works" },
+                { id: "contact", label: "Contact" }
+            ],
+            footerLinks: [
+                { id: "careers", label: "Careers" },
+                { id: "verify", label: "Verify Authenticity" },
+                { id: "terms", label: "Terms & Conditions" },
+                { id: "privacy", label: "Privacy" },
+                { id: "refund", label: "Refund Policy" }
+            ],
+            socials: [
+                { icon: "Linkedin", link: "https://www.linkedin.com/company/nodedCode" },
+                { icon: "Instagram", link: "https://www.instagram.com/nodedCode/" },
+                { icon: "Facebook", link: "https://www.facebook.com/nodedCode/" },
+                { icon: "Mail", link: "mailto:contact@nodedcode.studio" }
+            ],
+            services: [
+                { title: "AI Augmented Development", icon: "Circle", gradient: "from-cyan-500 to-blue-600" },
+                { title: "Website Development", icon: "Circle", gradient: "from-cyan-500 to-blue-600" },
+                { title: "UI/UX Design", icon: "Circle", gradient: "from-cyan-500 to-blue-600" },
+                { title: "Smart Contract Development", icon: "Circle", gradient: "from-cyan-500 to-blue-600" },
+                { title: "Web3 Development", icon: "Circle", gradient: "from-cyan-500 to-blue-600" },
+                { title: "WordPress Development", icon: "Circle", gradient: "from-cyan-500 to-blue-600" },
+                { title: "Prompt Engineering", icon: "Circle", gradient: "from-cyan-500 to-blue-600" },
+                { title: "Manual Testing", icon: "Circle", gradient: "from-cyan-500 to-blue-600" },
+                { title: "Android Development", icon: "Circle", gradient: "from-cyan-500 to-blue-600" },
+                { title: "Website Audit", icon: "Circle", gradient: "from-cyan-500 to-blue-600" },
+                { title: "Project Support", icon: "Circle", gradient: "from-cyan-500 to-blue-600" },
+                { title: "And Many More...", icon: "Circle", gradient: "from-cyan-500 to-blue-600" }
+            ],
+            processSteps: [
+                { icon: "Circle", title: "AI Optimization", subtitle: "Efficiency", desc: "We utilize generative AI to handle 50-80% of the groundwork. This drastically cuts costs while maintaining elite code quality." },
+                { icon: "Circle", title: "Flexible Scope", subtitle: "Any Size", desc: "From simple one-page fixes to complex platform builds. No project is too small or too big for our adaptive workflow." },
+                { icon: "Circle", title: "Flexible Payments", subtitle: "Global & Secure", desc: "We accept various payment services like wire transfer, digital currencies, and escrow with Fiverr or Upwork via our agent profiles." },
+                { icon: "Circle", title: "Registered Agency", subtitle: "Trusted", desc: "We are registered in Bangladesh. Our Provisional BBID: AA008810168T." }
+            ],
+            verification_fallback: [
+                { id: "NCS4041", issued_to: "Md Sejabur Rahat (Lead Software Engineer)", status: "ACTIVE" }
+            ],
+            careers_fallback: [
+                { title: "NO OPENINGS RIGHT NOW", link: "#" }
+            ],
+            works_fallback: [
+                { title: "FinTech Dashboard", category: "Web Application", desc: "A high-frequency trading interface built with React and advanced data visualization libraries.", link: "#", image_url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" },
+                { title: "Enterprise API Integration", category: "Backend System", desc: "A highly resilient backend architecture bridging multiple LLMs into a seamless internal corporate tool.", link: "#", image_url: "" }
+            ]
         };
 
-        const ICON_MAP = { Globe, Cpu, Zap, Clock, Briefcase, Terminal, Database, Fingerprint, ShieldCheck, Bot, Rocket, Layers, Code, Hash, Smartphone, Github, Linkedin, Mail, Twitter, Circle, Box, Instagram, Facebook };
+        const ICON_MAP = { Globe, Cpu, Zap, Clock, Briefcase, Terminal, Database, Fingerprint, ShieldCheck, Bot, Rocket, Layers, Code, Hash, Smartphone, Github, Linkedin, Mail, Twitter, Instagram, Facebook, Circle, Box };
         const ConfigContext = createContext(DEFAULT_CONFIG);
 
-        /** * Typographic Decryption Component
-         * Animates string rendering through a randomized character cycle.
-         */
+        /** Decryption Effect Component */
         const ScrambleText = ({ text, className = "", hoverTrigger = false }) => {
             const [display, setDisplay] = useState(text || "");
             const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&<>";
@@ -152,9 +295,7 @@
             return <span className={className}>{display}</span>;
         };
 
-        /** * Interactive Spotlight Card
-         * Combines 3D orientation physics with a radial gradient pointer mask.
-         */
+        /** Hardware-Accelerated 3D Masked Element */
         const SpotlightCard = ({ children, className = "", borderOpacity = 0.25 }) => {
             const divRef = useRef(null);
             const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -185,7 +326,7 @@
                     ref={divRef}
                     onMouseMove={handleMouseMove}
                     onMouseLeave={handleMouseLeave}
-                    className={`relative transform-gpu transition-transform duration-200 ease-out will-change-transform group bg-[#0a0a0a] border border-[#1a1a1a] shadow-xl ${className}`}
+                    className={`relative transform-gpu transition-transform duration-200 ease-out will-change-transform group bg-[#0a0a0a] border border-[#1a1a1a] shadow-xl flex flex-col ${className}`}
                     style={{ transform: `perspective(1000px) rotateX(${rotate.x}deg) rotateY(${rotate.y}deg) scale3d(1.01, 1.01, 1.01)` }}
                 >
                     <div
@@ -200,14 +341,12 @@
                             padding: '1px'
                         }}
                     />
-                    <div className="relative h-full rounded-[inherit] overflow-hidden">{children}</div>
+                    <div className="relative h-full rounded-[inherit] overflow-hidden flex flex-col">{children}</div>
                 </div>
             );
         };
 
-        /** * Background Environment Engine
-         * Renders an interactive kinetic particle system on a fixed canvas layer.
-         */
+        /** Kinetic Particle Fluid Simulation */
         const PremiumBackground = () => {
             const canvasRef = useRef(null);
 
@@ -255,7 +394,6 @@
 
                     ctx.fillStyle = 'rgba(2, 2, 2, 0.18)';
                     ctx.fillRect(0, 0, width, height);
-
                     ctx.globalCompositeOperation = 'screen';
 
                     for (let i = 0; i < particles.length; i++) {
@@ -283,7 +421,6 @@
                         if (dist < 350) {
                             let force = (350 - dist) / 350;
                             intensity = 0.15 + (force * 0.5);
-
                             targetX += (dx / dist) * force * -30 + (dy / dist) * force * 20;
                             targetY += (dy / dist) * force * -30 + (-dx / dist) * force * 20;
                         }
@@ -298,7 +435,6 @@
                     }
 
                     ctx.globalCompositeOperation = 'source-over';
-
                     const grad = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 600);
                     grad.addColorStop(0, 'rgba(6, 182, 212, 0.08)');
                     grad.addColorStop(1, 'transparent');
@@ -322,9 +458,7 @@
             return <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none -z-20 bg-[#020202]" />;
         };
 
-        /** * Global Viewport Cursor System
-         * Implements a decoupled trailing motion ring relative to pointer position.
-         */
+        /** Viewport Cursor Tracking */
         const CustomCursor = () => {
             const [pos, setPos] = useState({ x: 0, y: 0 });
             const [trailing, setTrailing] = useState({ x: 0, y: 0 });
@@ -353,22 +487,17 @@
             );
         };
 
-        /** Interlaced display artifacting */
         const CRTOverlay = () => <div className="fixed inset-0 pointer-events-none z-[60] opacity-[0.015] bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_2px,3px_100%]" />;
 
-        /** * Architecture Navigation Element 
-         * Utilizes bezier-curve state transitions for indicator pill.
-         */
+        /** State-Driven Navigation Controller */
         const DesktopMenu = ({ config, activeView, handleNav }) => {
             const [pillStyle, setPillStyle] = useState({ left: 0, width: 0, opacity: 0 });
             const navRef = useRef(null);
-
             const isMainNav = config.nav.some(item => item.id === activeView);
 
             const calculatePill = () => {
                 const activeEl = document.getElementById(`nav-item-${activeView}`);
                 const navEl = navRef.current;
-
                 if (activeEl && navEl && isMainNav) {
                     const navRect = navEl.getBoundingClientRect();
                     const activeRect = activeEl.getBoundingClientRect();
@@ -394,7 +523,6 @@
                         className="absolute bg-cyan-500 rounded-full transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] shadow-[0_0_10px_rgba(6,182,212,0.2)]"
                         style={{ left: pillStyle.left, width: pillStyle.width, height: 'calc(100% - 8px)', top: '4px', opacity: pillStyle.opacity }}
                     />
-
                     {config.nav.map(item => (
                         <button
                             key={item.id} id={`nav-item-${item.id}`} onClick={() => handleNav(item.id)}
@@ -407,7 +535,7 @@
             );
         };
 
-        /** Domain View Components */
+        /** Domain Views */
         const HomeView = ({ navigate }) => {
             const config = useContext(ConfigContext);
             return (
@@ -513,22 +641,84 @@
             );
         };
 
+        const WorksView = () => {
+            const config = useContext(ConfigContext);
+            const [works, setWorks] = useState(config.works_fallback || []);
+
+            useEffect(() => {
+                if (config.remote?.worksUrl) {
+                    fetch(config.remote.worksUrl)
+                        .then(res => res.json())
+                        .then(data => {
+                            const cleanData = Array.isArray(data) ? data : (data.data || []);
+                            if (cleanData.length > 0) setWorks(cleanData);
+                        })
+                        .catch(err => console.warn("Remote works fetch failed. Utilizing local fallback schema."));
+                }
+            }, [config.remote]);
+
+            return (
+                <section className="pt-32 pb-20 px-6 min-h-[70vh]">
+                    <div className="container mx-auto max-w-6xl">
+                        <div className="mb-16 text-center animate-[fadeIn_0.8s_ease-out]">
+                            <h2 className="font-display text-4xl md:text-6xl font-bold text-white mb-4 tracking-tight">{config.text.works_h2}</h2>
+                            <p className="text-gray-400 max-w-2xl mx-auto">{config.text.works_desc}</p>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            {works.map((work, idx) => (
+                                <div key={idx} className={`animate-[slideUp_0.5s_ease-out_${idx * 0.1}s_both] h-full flex`}>
+                                    <SpotlightCard className="rounded-2xl w-full">
+                                        <div className="flex flex-col h-full bg-[#0a0a0a]">
+                                            {work.image_url && work.image_url.trim() !== "" ? (
+                                                <div className="w-full h-48 md:h-64 overflow-hidden border-b border-[#1a1a1a]">
+                                                    <img src={work.image_url} alt={work.title} className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-500 hover:scale-105" loading="lazy" />
+                                                </div>
+                                            ) : (
+                                                <div className="w-full h-32 md:h-48 bg-[#111] border-b border-[#1a1a1a] flex items-center justify-center">
+                                                    <Code className="w-12 h-12 text-gray-700" />
+                                                </div>
+                                            )}
+                                            <div className="p-8 flex-grow flex flex-col justify-between">
+                                                <div>
+                                                    <div className="mb-3">
+                                                        <span className="text-xs font-mono py-1 px-3 border border-cyan-500/20 text-cyan-400 rounded-full bg-cyan-500/5 uppercase tracking-widest">
+                                                            {work.category || "Development"}
+                                                        </span>
+                                                    </div>
+                                                    <h3 className="text-2xl font-bold text-white mb-3 hover:text-cyan-400 transition-colors">{work.title}</h3>
+                                                    <p className="text-gray-400 leading-relaxed mb-6">{work.desc}</p>
+                                                </div>
+                                                <a href={work.link || "#"} target="_blank" rel="noopener noreferrer"
+                                                    className="inline-flex items-center gap-2 self-start text-sm font-bold text-white hover:text-cyan-400 transition-colors uppercase tracking-widest">
+                                                    View Project <ArrowUpRight size={16} />
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </SpotlightCard>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
         const ContactView = () => {
             const config = useContext(ConfigContext);
             return (
                 <section className="pt-32 pb-20 px-6 animate-[fadeIn_0.8s_ease-out]">
                     <div className="container mx-auto max-w-4xl text-center">
                         <SpotlightCard className="inline-block w-full rounded-[3rem]" borderOpacity={0.2}>
-                            <div className="bg-[#0a0a0a] p-12 md:p-24 relative overflow-hidden group">
+                            <div className="bg-[#0a0a0a] p-8 md:p-24 relative overflow-hidden group">
                                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.10] mix-blend-overlay" />
                                 <div className="absolute -top-32 -right-32 w-80 h-80 bg-cyan-500/5 blur-[120px] group-hover:bg-cyan-500/10 transition-colors duration-1000" />
-                                <div className="relative z-10">
+                                <div className="relative z-10 flex flex-col items-center">
                                     <h2 className="font-display text-5xl md:text-8xl font-bold mb-8 tracking-tighter text-white">
                                         {config.text.contact_h2_top}<br />
                                         <span className="text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-600">{config.text.contact_h2_bot}</span>
                                     </h2>
                                     <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto font-light">{config.text.contact_desc}</p>
-                                    <a href={`mailto:${config.brand.email}`} className="inline-block bg-white text-black px-12 py-6 rounded-full font-display font-bold text-lg hover:scale-105 transition-transform shadow-[0_10px_30px_-10px_rgba(255,255,255,0.15)]">
+                                    <a href={`mailto:${config.brand.email}`} className="inline-flex items-center justify-center w-full md:w-auto bg-white text-black px-6 md:px-12 py-4 md:py-6 rounded-full font-display font-bold text-sm md:text-lg hover:scale-105 transition-transform shadow-[0_10px_30px_-10px_rgba(255,255,255,0.15)] break-all">
                                         {config.brand.email}
                                     </a>
                                 </div>
@@ -551,7 +741,7 @@
                             const cleanData = Array.isArray(data) ? data : (data.data || []);
                             if (cleanData.length > 0) setJobs(cleanData);
                         })
-                        .catch(err => console.warn("Remote careers fetch failed."));
+                        .catch(err => console.warn("Remote careers fetch failed. Utilizing local fallback schema."));
                 }
             }, [config.remote]);
 
@@ -693,7 +883,6 @@
             );
         };
 
-        /** Generic legal document renderer */
         const LegalView = ({ title, content }) => (
             <section className="pt-32 pb-20 px-6 animate-[fadeIn_0.5s_ease-out] min-h-[70vh]">
                 <div className="container mx-auto max-w-4xl">
@@ -709,19 +898,19 @@
             </section>
         );
 
-        /** Main Application Root */
+        /** Main Routing Controller */
         const App = () => {
             const [activeView, setActiveView] = useState('home');
             const [isMenuOpen, setIsMenuOpen] = useState(false);
             const [config, setConfig] = useState(DEFAULT_CONFIG);
             const [bootSequence, setBootSequence] = useState(0);
-            const [isScrolled, setIsScrolled] = useState(false); // Scroll state for dynamic nav
+            const [isScrolled, setIsScrolled] = useState(false);
 
             useEffect(() => {
                 fetch('./config.json')
                     .then(res => res.json())
                     .then(data => { setConfig(prev => ({ ...prev, ...data, brand: { ...prev.brand, ...data.brand }, text: { ...prev.text, ...data.text }, remote: { ...prev.remote, ...data.remote } })); })
-                    .catch(() => console.log("Config load failed, utilizing internal core."));
+                    .catch(() => console.log("Config load failed, utilizing internal state fallback."));
 
                 setTimeout(() => setBootSequence(1), 500);
                 setTimeout(() => setBootSequence(2), 2500);
@@ -735,7 +924,6 @@
                     document.getElementsByTagName('head')[0].appendChild(link);
                 }
 
-                // Scroll Listener to trigger the frosted glass effect on the navigation bar
                 const handleScroll = () => setIsScrolled(window.scrollY > 20);
                 window.addEventListener('scroll', handleScroll);
                 return () => window.removeEventListener('scroll', handleScroll);
@@ -766,7 +954,6 @@
                         <PremiumBackground />
                         <CRTOverlay />
 
-                        {/* Dynamic Navigation Bar: Applies glassmorphism when scrolled down */}
                         <nav className={`fixed top-0 left-0 w-full z-50 px-6 transition-all duration-500 ${isScrolled ? 'py-4 bg-[#020202]/85 backdrop-blur-xl border-b border-[#1a1a1a] shadow-[0_4px_30px_rgba(0,0,0,0.5)]' : 'py-6 bg-transparent'}`}>
                             <div className="container mx-auto flex justify-between items-center relative">
                                 <button onClick={() => handleNav('home')} className="flex items-center gap-3 group relative z-50">
@@ -802,6 +989,7 @@
                             {activeView === 'home' && <HomeView navigate={handleNav} />}
                             {activeView === 'expertise' && <ExpertiseView />}
                             {activeView === 'process' && <ProcessView navigate={handleNav} />}
+                            {activeView === 'works' && <WorksView />}
                             {activeView === 'contact' && <ContactView />}
                             {activeView === 'careers' && <CareerView />}
                             {activeView === 'verify' && <VerifyView />}
@@ -832,6 +1020,5 @@
         root.render(<App />);
     </script>
 </body>
-
 
 </html>
