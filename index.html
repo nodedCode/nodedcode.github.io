@@ -807,22 +807,31 @@
             const [status, setStatus] = useState('idle');
             const [result, setResult] = useState(null);
             const [db, setDb] = useState(config.verification_fallback);
+            
+            /** * Network State Management
+             * Prevents premature URL validation before the remote ledger is fully synchronized. 
+             */
+            const [isFetchingDb, setIsFetchingDb] = useState(!!config.remote?.verificationUrl);
+            const [hasCheckedUrl, setHasCheckedUrl] = useState(false);
 
             useEffect(() => {
                 if (config.remote?.verificationUrl) {
                     fetch(config.remote.verificationUrl)
                         .then(res => res.json())
                         .then(data => { setDb(Array.isArray(data) ? data : (data.data || [])); })
-                        .catch(err => console.warn("Remote verification fetch failed, using fallback."));
+                        .catch(err => console.warn("Remote verification fetch failed, using fallback."))
+                        .finally(() => setIsFetchingDb(false));
+                } else {
+                    setIsFetchingDb(false);
                 }
             }, [config.remote]);
 
-            const executeVerify = (searchQuery) => {
+            const executeVerify = (searchQuery, dataToSearch = db) => {
                 if (!searchQuery) return;
                 setStatus('checking');
                 setTimeout(() => {
                     const q = searchQuery.toLowerCase().trim();
-                    const match = db.find(r => (r.id && r.id.toLowerCase().trim() === q) || (r.email && r.email.toLowerCase().trim() === q));
+                    const match = dataToSearch.find(r => (r.id && r.id.toLowerCase().trim() === q) || (r.email && r.email.toLowerCase().trim() === q));
                     if (match) { setStatus('valid'); setResult(match); } else { setStatus('invalid'); setResult(null); }
                 }, 1000);
             };
@@ -830,8 +839,14 @@
             useEffect(() => {
                 const params = new URLSearchParams(window.location.search);
                 const verifyParam = params.get('verify');
-                if (verifyParam && db.length > 0) { setQuery(verifyParam); executeVerify(verifyParam); }
-            }, [db]);
+                
+                // Execution gate: Only process the URL parameter if the network request has finalized
+                if (verifyParam && !isFetchingDb && !hasCheckedUrl) { 
+                    setQuery(verifyParam); 
+                    executeVerify(verifyParam, db); 
+                    setHasCheckedUrl(true);
+                }
+            }, [isFetchingDb, db, hasCheckedUrl]);
 
             return (
                 <section className="pt-32 pb-20 px-6 animate-[fadeIn_0.5s_ease-out] min-h-[70vh]">
