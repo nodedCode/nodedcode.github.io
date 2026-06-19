@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Primary Technical SEO Meta Tags -->
     <title>nodedCode | ESTABLISHED EXPERTISE, NEW STRUCTURE</title>
     <meta name="title" content="nodedCode | ESTABLISHED EXPERTISE, NEW STRUCTURE">
     <meta name="description"
@@ -15,12 +16,49 @@
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <link rel="canonical" href="https://nodedcode.studio/">
 
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nodedcode.studio/">
+    <meta property="og:title" content="nodedCode | ESTABLISHED EXPERTISE, NEW STRUCTURE">
+    <meta property="og:description"
+        content="Premium digital architectures at lightspeed. We specialize in AI Augmented Development, Web3, Smart Contracts, UI/UX, and complex software integrations.">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1620121692029-d088224ddc74?q=80&w=2832&auto=format&fit=crop">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://nodedcode.studio/">
+    <meta property="twitter:title" content="nodedCode | ESTABLISHED EXPERTISE, NEW STRUCTURE">
+    <meta property="twitter:description"
+        content="Premium digital architectures at lightspeed. We specialize in AI Augmented Development, Web3, Smart Contracts, UI/UX, and complex software integrations.">
+    <meta property="twitter:image"
+        content="https://images.unsplash.com/photo-1620121692029-d088224ddc74?q=80&w=2832&auto=format&fit=crop">
+
+    <!-- JSON-LD Structured Data (Organization/ProfessionalService) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "nodedCode",
+      "image": "https://images.unsplash.com/photo-1620121692029-d088224ddc74?q=80&w=2832&auto=format&fit=crop",
+      "description": "Premium digital architectures at lightspeed. We specialize in AI Augmented Development, Web3, Smart Contracts, UI/UX, and complex software integrations.",
+      "url": "https://nodedcode.studio/",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "contact@nodedcode.studio",
+        "contactType": "Customer Support"
+      }
+    }
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: { brand: '#f1efe7' }
+                    colors: {
+                        brand: '#f1efe7'
+                    }
                 }
             }
         }
@@ -28,85 +66,125 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
-        body { font-family: 'Space Grotesk', sans-serif; background-color: #020202; color: #ffffff; cursor: auto; overflow-x: hidden; }
-        .font-mono { font-family: 'JetBrains Mono', monospace; }
-        @media (min-width: 1024px) { body { cursor: none; } }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
-        @keyframes pulseText { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-        .perspective { perspective: 1000px; }
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #000; }
-        ::-webkit-scrollbar-thumb { background: #222; border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background: #f1efe7; }
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #020202;
+            color: #ffffff;
+            cursor: auto;
+            overflow-x: hidden;
+        }
+
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        @media (min-width: 1024px) {
+            body {
+                cursor: none;
+            }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        @keyframes pulseText {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .perspective {
+            perspective: 1000px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #222;
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f1efe7;
+        }
     </style>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lucide-react@0.263.1/dist/umd/lucide-react.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.6/babel.min.js"></script>
+    <script type="importmap">
+        {
+            "imports": {
+                "react": "https://esm.sh/react@18.2.0",
+                "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+                "react/jsx-runtime": "https://esm.sh/react@18.2.0/jsx-runtime",
+                "lucide-react": "https://esm.sh/lucide-react@0.263.1?bundle&external=react"
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 
 <body>
     <div id="root">
+        <!-- Visual Pre-Loader -->
         <div style="display: flex; align-items: center; justify-content: center; height: 100vh; width: 100vw; background-color: #020202;">
             <p style="color: #f1efe7; font-family: 'JetBrains Mono', monospace; font-size: 14px; animation: pulseText 1.5s infinite;">
-                > INITIATING_CORE_SYSTEMS_V3_SAFE_MODE...
+                > INITIALIZING_CORE_SYSTEMS...
             </p>
+        </div>
+        
+        <!-- Bulletproof Semantic SEO Fallback (Visually Hidden) -->
+        <div style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;">
+            <h1>nodedCode | ESTABLISHED EXPERTISE, NEW STRUCTURE</h1>
+            <h2>Built with Intelligence.</h2>
+            <p>Premium digital architectures at lightspeed.</p>
+            <h3>Our Capabilities</h3>
+            <ul>
+                <li>AI Augmented Development</li>
+                <li>Website Development</li>
+                <li>UI/UX Design</li>
+                <li>Smart Contract Development</li>
+                <li>Web3 Development</li>
+                <li>WordPress Development</li>
+                <li>Prompt Engineering</li>
+                <li>Android Development</li>
+                <li>Website Audit & Project Support</li>
+            </ul>
+            <h3>Our Works</h3>
+            <p>We build Fintech dashboards, AI content generators, SaaS platforms, and deploy custom intelligent architectures globally.</p>
+            <h3>Why Choose Us</h3>
+            <p>We utilize generative AI to handle 50-80% of the groundwork. This drastically cuts costs while maintaining elite code quality. We accept various payment services like wire transfer, digital currencies, and escrow with Fiverr or Upwork via our agent profiles. Registered in Bangladesh. Provisional BBID: AA008810168T.</p>
+            <p>Contact us: contact@nodedcode.studio</p>
         </div>
     </div>
 
-    <script type="text/babel">
-        // Extract native React hooks from the global CNDJS object
-        const { useState, useEffect, useRef, createContext, useContext } = React;
+    <script type="text/babel" data-type="module">
+        import React, { useState, useEffect, useRef, createContext, useContext } from 'react';
+        import ReactDOM from 'react-dom/client';
+        import {
+            ArrowRight, Globe, Cpu, Zap, Github, Linkedin, Mail, Twitter, Instagram, Facebook,
+            Menu, X, Aperture, ChevronRight, ShieldCheck, Search,
+            CheckCircle, AlertCircle, Clock, Briefcase, Lock, Terminal,
+            Database, Fingerprint, Bot, Rocket, Layers, Code, Hash, Smartphone,
+            Circle, Box, ExternalLink, ArrowUpRight
+        } from 'lucide-react';
 
-        // SAFE ICON FACTORY: Prevents React from crashing if an icon fails to load over the network
-        const getSafeIcon = (name) => (props) => {
-            const Icons = window.lucide || window.Lucide || window.lucideReact || window.LucideReact || {};
-            const Comp = Icons[name];
-            if (!Comp) {
-                return <svg {...props} width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/></svg>;
-            }
-            return <Comp {...props} />;
-        };
-
-        const ArrowRight = getSafeIcon('ArrowRight');
-        const Globe = getSafeIcon('Globe');
-        const Cpu = getSafeIcon('Cpu');
-        const Zap = getSafeIcon('Zap');
-        const Github = getSafeIcon('Github');
-        const Linkedin = getSafeIcon('Linkedin');
-        const Mail = getSafeIcon('Mail');
-        const Twitter = getSafeIcon('Twitter');
-        const Instagram = getSafeIcon('Instagram');
-        const Facebook = getSafeIcon('Facebook');
-        const Menu = getSafeIcon('Menu');
-        const X = getSafeIcon('X');
-        const Aperture = getSafeIcon('Aperture');
-        const ChevronRight = getSafeIcon('ChevronRight');
-        const ShieldCheck = getSafeIcon('ShieldCheck');
-        const Search = getSafeIcon('Search');
-        const CheckCircle = getSafeIcon('CheckCircle');
-        const AlertCircle = getSafeIcon('AlertCircle');
-        const Clock = getSafeIcon('Clock');
-        const Briefcase = getSafeIcon('Briefcase');
-        const Lock = getSafeIcon('Lock');
-        const Terminal = getSafeIcon('Terminal');
-        const Database = getSafeIcon('Database');
-        const Fingerprint = getSafeIcon('Fingerprint');
-        const Bot = getSafeIcon('Bot');
-        const Rocket = getSafeIcon('Rocket');
-        const Layers = getSafeIcon('Layers');
-        const Code = getSafeIcon('Code');
-        const Hash = getSafeIcon('Hash');
-        const Smartphone = getSafeIcon('Smartphone');
-        const Circle = getSafeIcon('Circle');
-        const Box = getSafeIcon('Box');
-        const ExternalLink = getSafeIcon('ExternalLink');
-        const ArrowUpRight = getSafeIcon('ArrowUpRight');
-
-        /** State Configuration Fallback Array (Synced to your uploaded config.json) */
+        /** State Configuration Fallback Array */
         const DEFAULT_CONFIG = {
             brand: { name: "nodedCode", tagline: "ESTABLISHED EXPERTISE, NEW STRUCTURE", email: "contact@nodedcode.studio", logoUrl: "", faviconUrl: "./nodedCode.ico" },
             text: {
@@ -117,25 +195,43 @@
                 terms_title: "Terms & Conditions", terms_content: "General use of this website is subject to standard digital policies. However, each specific project engaged with us will be governed by its own distinct Terms & Conditions. These project-specific terms depend heavily on the task, scope, and specific situational requirements, and will be legally established in the formal contract signed by both parties prior to the commencement of any work.",
                 privacy_title: "Privacy Policy", privacy_content: "We respect your privacy. We do not sell your data. Any email or information submitted for project inquiries is kept strictly confidential and is used solely for the purpose of communicating regarding your project.",
                 refund_title: "Refund Policy", refund_content: "We do not offer refunds once work is completed. Any project cancellation should be notified early. Cancellations may be eligible for a partial refund, heavily depending on the time and resources already spent on the project prior to the notice.",
-                career_h2: "ACCESS DENIED", career_desc: "Capacity full.", works_h2: "OUR WORKS", works_desc: "A selection of architectures deployed by our collective."
+                career_h2: "ACCESS DENIED", career_desc: "Capacity full.",
+                works_h2: "OUR WORKS", works_desc: "A selection of architectures deployed by our collective."
             },
-            remote: { verificationUrl: "https://opensheet.elk.sh/1jYnJfPR7sZ1P5sFwpQWwMnFKIJt2FNWqcUFPLmVZM2E/Sheet1", careersUrl: "https://opensheet.elk.sh/13bakIus6wLbEOgKCvk9KihG41QosPp6ZdwwF8rxZoFM/Sheet1", worksUrl: "https://opensheet.elk.sh/1BpQ9Rs1rYkBIKYxU10us-2xq5yneFcRSFGxUtHk_lZs/Sheet1" },
-            nav: [{ id: "home", label: "Home" }, { id: "expertise", label: "Services" }, { id: "works", label: "Our Works" }, { id: "process", label: "Why Us" }, { id: "contact", label: "Contact" }],
-            footerLinks: [{ id: "careers", label: "Careers" }, { id: "verify", label: "Verify Authenticity" }, { id: "terms", label: "Terms & Conditions" }, { id: "privacy", label: "Privacy" }, { id: "refund", label: "Refund Policy" }],
-            socials: [{ icon: "Linkedin", link: "https://www.linkedin.com/company/nodedCode" }, { icon: "Instagram", link: "https://www.instagram.com/nodedCode/" }, { icon: "Facebook", link: "https://www.facebook.com/nodedCode/" }, { icon: "Mail", link: "mailto:contact@nodedcode.studio" }],
+            remote: { verificationUrl: "https://opensheet.elk.sh/1jYnJfPR7sZ1P5sFwpQWwMnFKIJt2FNWqcUFPLmVZM2E/Sheet1", careersUrl: "https://opensheet.elk.sh/13bakIus6wLbEOgKCvk9KihG41QosPp6ZdwwF8rxZoFM/Sheet1", worksUrl: "" },
+            nav: [
+                { id: "home", label: "Home" },
+                { id: "expertise", label: "Services" },
+                { id: "process", label: "Why Us" },
+                { id: "works", label: "Works" },
+                { id: "contact", label: "Contact" }
+            ],
+            footerLinks: [
+                { id: "careers", label: "Careers" },
+                { id: "verify", label: "Verify Authenticity" },
+                { id: "terms", label: "Terms & Conditions" },
+                { id: "privacy", label: "Privacy" },
+                { id: "refund", label: "Refund Policy" }
+            ],
+            socials: [
+                { icon: "Linkedin", link: "https://www.linkedin.com/company/nodedCode" },
+                { icon: "Instagram", link: "https://www.instagram.com/nodedCode/" },
+                { icon: "Facebook", link: "https://www.facebook.com/nodedCode/" },
+                { icon: "Mail", link: "mailto:contact@nodedcode.studio" }
+            ],
             services: [
-                { title: "AI Augmented Development", icon: "Circle", gradient: "from-cyan-500 to-blue-600" },
-                { title: "Website Development", icon: "Circle", gradient: "from-cyan-500 to-blue-600" },
-                { title: "UI/UX Design", icon: "Circle", gradient: "from-cyan-500 to-blue-600" },
-                { title: "Smart Contract Development", icon: "Circle", gradient: "from-cyan-500 to-blue-600" },
-                { title: "Web3 Development", icon: "Circle", gradient: "from-cyan-500 to-blue-600" },
-                { title: "WordPress Development", icon: "Circle", gradient: "from-cyan-500 to-blue-600" },
-                { title: "Prompt Engineering", icon: "Circle", gradient: "from-cyan-500 to-blue-600" },
-                { title: "Manual Testing", icon: "Circle", gradient: "from-cyan-500 to-blue-600" },
-                { title: "Android Development", icon: "Circle", gradient: "from-cyan-500 to-blue-600" },
-                { title: "Website Audit", icon: "Circle", gradient: "from-cyan-500 to-blue-600" },
-                { title: "Project Support", icon: "Circle", gradient: "from-cyan-500 to-blue-600" },
-                { title: "And Many More...", icon: "Circle", gradient: "from-cyan-500 to-blue-600" }
+                { title: "AI Augmented Development", icon: "Circle", gradient: "from-white/10 to-transparent border border-white/5" },
+                { title: "Website Development", icon: "Circle", gradient: "from-white/10 to-transparent border border-white/5" },
+                { title: "UI/UX Design", icon: "Circle", gradient: "from-white/10 to-transparent border border-white/5" },
+                { title: "Smart Contract Development", icon: "Circle", gradient: "from-white/10 to-transparent border border-white/5" },
+                { title: "Web3 Development", icon: "Circle", gradient: "from-white/10 to-transparent border border-white/5" },
+                { title: "WordPress Development", icon: "Circle", gradient: "from-white/10 to-transparent border border-white/5" },
+                { title: "Prompt Engineering", icon: "Circle", gradient: "from-white/10 to-transparent border border-white/5" },
+                { title: "Manual Testing", icon: "Circle", gradient: "from-white/10 to-transparent border border-white/5" },
+                { title: "Android Development", icon: "Circle", gradient: "from-white/10 to-transparent border border-white/5" },
+                { title: "Website Audit", icon: "Circle", gradient: "from-white/10 to-transparent border border-white/5" },
+                { title: "Project Support", icon: "Circle", gradient: "from-white/10 to-transparent border border-white/5" },
+                { title: "And Many More...", icon: "Circle", gradient: "from-white/10 to-transparent border border-white/5" }
             ],
             processSteps: [
                 { icon: "Circle", title: "AI Optimization", subtitle: "Efficiency", desc: "We utilize generative AI to handle 50-80% of the groundwork. This drastically cuts costs while maintaining elite code quality." },
@@ -143,14 +239,22 @@
                 { icon: "Circle", title: "Flexible Payments", subtitle: "Global & Secure", desc: "We accept various payment services like wire transfer, digital currencies, and escrow with Fiverr or Upwork via our agent profiles." },
                 { icon: "Circle", title: "Registered Agency", subtitle: "Trusted", desc: "We are registered in Bangladesh. Our Provisional BBID: AA008810168T." }
             ],
-            verification_fallback: [{ id: "NCS4041", issued_to: "Md Sejabur Rahat (Lead Software Engineer)", status: "ACTIVE" }],
-            careers_fallback: [{ title: "NO OPENINGS RIGHT NOW" }],
-            works_fallback: [{ title: "FinTech Dashboard (TEST)", category: "Web Application", desc: "A high-frequency trading interface built with React and advanced data visualization libraries.", link: "#", image_url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" }]
+            verification_fallback: [
+                { id: "NCS4041", issued_to: "Md Sejabur Rahat (Lead Software Engineer)", status: "ACTIVE" }
+            ],
+            careers_fallback: [
+                { title: "NO OPENINGS RIGHT NOW", link: "#" }
+            ],
+            works_fallback: [
+                { title: "FinTech Dashboard", category: "Web Application", desc: "A high-frequency trading interface built with React and advanced data visualization libraries.", link: "#", image_url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" },
+                { title: "Enterprise API Integration", category: "Backend System", desc: "A highly resilient backend architecture bridging multiple LLMs into a seamless internal corporate tool.", link: "#", image_url: "" }
+            ]
         };
 
         const ICON_MAP = { Globe, Cpu, Zap, Clock, Briefcase, Terminal, Database, Fingerprint, ShieldCheck, Bot, Rocket, Layers, Code, Hash, Smartphone, Github, Linkedin, Mail, Twitter, Instagram, Facebook, Circle, Box };
         const ConfigContext = createContext(DEFAULT_CONFIG);
 
+        /** Typographic Decryption Component */
         const ScrambleText = ({ text, className = "", hoverTrigger = false }) => {
             const [display, setDisplay] = useState(text || "");
             const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&<>";
@@ -166,6 +270,7 @@
             return <span className={className}>{display}</span>;
         };
 
+        /** Hardware-Accelerated 3D Masked Element */
         const SpotlightCard = ({ children, className = "", borderOpacity = 0.15 }) => {
             const divRef = useRef(null);
             const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -216,6 +321,7 @@
             );
         };
 
+        /** Kinetic Particle Fluid Simulation (Refined Aesthetics) */
         const PremiumBackground = () => {
             const canvasRef = useRef(null);
 
@@ -239,6 +345,7 @@
                     canvas.width = width;
                     canvas.height = height;
                     particles = [];
+                    // Reduced density for a cleaner, luxurious feel
                     const count = window.innerWidth < 768 ? 40 : 100;
                     for (let i = 0; i < count; i++) {
                         particles.push({
@@ -260,6 +367,7 @@
                     mouse.x += (mouse.targetX - mouse.x) * 0.05;
                     mouse.y += (mouse.targetY - mouse.y) * 0.05;
 
+                    // Faster background fade to limit trailing noise
                     ctx.fillStyle = 'rgba(2, 2, 2, 0.3)';
                     ctx.fillRect(0, 0, width, height);
 
@@ -285,6 +393,7 @@
                         let dy = mouse.y - p.y;
                         let dist = Math.sqrt(dx * dx + dy * dy);
 
+                        // Reduced base intensity
                         let intensity = 0.05;
 
                         if (dist < 300) {
@@ -299,11 +408,14 @@
 
                         ctx.beginPath();
                         ctx.arc(p.x, p.y, p.size * (intensity * 2), 0, Math.PI * 2);
+                        // Applying brand color directly to particles
                         ctx.fillStyle = `rgba(241, 239, 231, ${intensity})`;
                         ctx.fill();
                     }
 
                     ctx.globalCompositeOperation = 'source-over';
+
+                    // Restrained, soft ambient tracking glow
                     const grad = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 500);
                     grad.addColorStop(0, 'rgba(241, 239, 231, 0.03)');
                     grad.addColorStop(1, 'transparent');
@@ -327,6 +439,7 @@
             return <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none -z-20 bg-[#020202]" />;
         };
 
+        /** Viewport Cursor Tracking */
         const CustomCursor = () => {
             const [pos, setPos] = useState({ x: 0, y: 0 });
             const [trailing, setTrailing] = useState({ x: 0, y: 0 });
@@ -355,6 +468,7 @@
             );
         };
 
+        /** State-Driven Navigation Controller */
         const DesktopMenu = ({ config, activeView, handleNav }) => {
             const [pillStyle, setPillStyle] = useState({ left: 0, width: 0, opacity: 0 });
             const navRef = useRef(null);
@@ -403,6 +517,7 @@
             );
         };
 
+        /** Domain Views */
         const HomeView = ({ navigate }) => {
             const config = useContext(ConfigContext);
             return (
@@ -675,6 +790,7 @@
             const [result, setResult] = useState(null);
             const [db, setDb] = useState(config.verification_fallback);
             
+            /** State locks for network synchronization */
             const [isFetchingDb, setIsFetchingDb] = useState(!!config.remote?.verificationUrl);
             const [hasCheckedUrl, setHasCheckedUrl] = useState(false);
 
@@ -695,7 +811,7 @@
                 setStatus('checking');
                 setTimeout(() => {
                     const q = searchQuery.toLowerCase().trim();
-                    const match = dataToSearch.find(r => (r?.id && r.id.toLowerCase().trim() === q) || (r?.email && r.email.toLowerCase().trim() === q));
+                    const match = dataToSearch.find(r => (r.id && r.id.toLowerCase().trim() === q) || (r.email && r.email.toLowerCase().trim() === q));
                     if (match) { setStatus('valid'); setResult(match); } else { setStatus('invalid'); setResult(null); }
                 }, 1000);
             };
@@ -776,6 +892,7 @@
             </section>
         );
 
+        /** Main Bootloader & View Router */
         const App = () => {
             const [activeView, setActiveView] = useState('home');
             const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -786,16 +903,8 @@
             useEffect(() => {
                 fetch('./config.json')
                     .then(res => res.json())
-                    .then(data => { 
-                        setConfig(prev => ({ 
-                            ...prev, 
-                            ...data, 
-                            brand: { ...prev.brand, ...(data.brand || {}) }, 
-                            text: { ...prev.text, ...(data.text || {}) }, 
-                            remote: { ...prev.remote, ...(data.remote || {}) } 
-                        })); 
-                    })
-                    .catch(() => console.log("Config fetch failed, using internal default structure."));
+                    .then(data => { setConfig(prev => ({ ...prev, ...data, brand: { ...prev.brand, ...data.brand }, text: { ...prev.text, ...data.text }, remote: { ...prev.remote, ...data.remote } })); })
+                    .catch(() => console.log("Config load failed, utilizing internal state fallback."));
 
                 setTimeout(() => setBootSequence(1), 500);
                 setTimeout(() => setBootSequence(2), 2500);
@@ -900,7 +1009,7 @@
                 </ConfigContext.Provider>
             );
         };
-        const root = window.ReactDOM.createRoot(document.getElementById('root'));
+        const root = ReactDOM.createRoot(document.getElementById('root'));
         root.render(<App />);
     </script>
 </body>
