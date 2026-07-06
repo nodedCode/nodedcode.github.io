@@ -164,8 +164,6 @@
             </ul>
             <h3>Our Works</h3>
             <p>We build Fintech dashboards, AI content generators, SaaS platforms, and deploy custom intelligent architectures globally.</p>
-            <h3>Why Choose Us</h3>
-            <p>We utilize generative AI to handle 50-80% of the groundwork. This drastically cuts costs while maintaining elite code quality. We accept various payment services like wire transfer, digital currencies, and escrow with Fiverr or Upwork via our agent profiles. Registered in Bangladesh. Provisional BBID: AA008810168T.</p>
             <p>Contact us: contact@nodedcode.studio</p>
         </div>
     </div>
@@ -460,10 +458,13 @@
                         .then(data => {
                             const cleanData = Array.isArray(data) ? data : (data.data || []);
                             if (cleanData.length > 0) setServices(cleanData);
+                            else setServices(config.services || []);
                         })
-                        .catch(err => {});
+                        .catch(err => { setServices(config.services || []); });
+                } else {
+                    setServices(config.services || []);
                 }
-            }, [config.remote]);
+            }, [config.remote, config.services]);
 
             return (
                 <section className="pt-32 pb-20 px-6 relative z-10">
@@ -562,10 +563,13 @@
                         .then(data => {
                             const cleanData = Array.isArray(data) ? data : (data.data || []);
                             if (cleanData.length > 0) setProducts(cleanData);
+                            else setProducts(config.products_fallback || []);
                         })
-                        .catch(err => {}); // silent error handling
+                        .catch(err => { setProducts(config.products_fallback || []); });
+                } else {
+                    setProducts(config.products_fallback || []);
                 }
-            }, [config.remote]);
+            }, [config.remote, config.products_fallback]);
 
             return (
                 <section className="pt-32 pb-20 px-6 min-h-[70vh] relative z-10">
@@ -644,16 +648,19 @@
             const [jobs, setJobs] = useState(config.careers_fallback || []);
 
             useEffect(() => {
-                if (config.remote?.careersUrl) {
+                if (config.remote?.careersUrl && config.remote.careersUrl.trim() !== "") {
                     fetch(config.remote.careersUrl)
                         .then(res => res.json())
                         .then(data => {
                             const cleanData = Array.isArray(data) ? data : (data.data || []);
                             if (cleanData.length > 0) setJobs(cleanData);
+                            else setJobs(config.careers_fallback || []);
                         })
-                        .catch(err => console.warn("Remote careers fetch failed. Utilizing local fallback schema."));
+                        .catch(err => { setJobs(config.careers_fallback || []); });
+                } else {
+                    setJobs(config.careers_fallback || []);
                 }
-            }, [config.remote]);
+            }, [config.remote, config.careers_fallback]);
 
             if (jobs.length === 0 || jobs.every(j => (j.status || '').toLowerCase() === 'inactive' || (j.status || '').toLowerCase() === 'expired')) {
                 return (
