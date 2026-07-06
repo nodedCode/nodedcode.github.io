@@ -1,40 +1,39 @@
 {
     "brand": {
-        "name": "nodedCode",
-        "tagline": "ESTABLISHED EXPERTISE, NEW STRUCTURE",
+        "name": "nodedCode Studio",
         "email": "contact@nodedcode.studio",
-        "logoUrl": "",
         "faviconUrl": "./nodedCode.ico"
     },
     "text": {
-        "hero_h1_top": "BUILT WITH",
+        "hero_h1_top": "BUILD WITH",
         "hero_h1_bot": "INTELLIGENCE.",
-        "hero_desc": "Premium digital architectures at lightspeed",
+        "hero_desc": "Accelerated development for modern digital products.",
         "hero_btn": "CONTACT US",
-        "expertise_h2": "OUR CAPABILITIES",
+        "expertise_h2": "THINGS WE OFFER",
         "process_h2_top": "WHY",
         "process_h2_bot": "CHOOSE US",
         "process_btn": "DISCUSS YOUR NEEDS",
         "contact_h2_top": "READY TO",
         "contact_h2_bot": "SCALE?",
         "contact_desc": "Secure your slot in our production queue.",
-        "verify_h2": "AUTHENTICITY CHECK",
-        "verify_desc": "Verify authenticity against our public database. Verifiable: Email Address, Employee ID, Document ID and Project ID. We won't take responsibility for interacting with anything that is inactive/expired or not available in our database.",
+        "verify_h2": "VERIFY AUTHENTICITY",
+        "verify_desc": "Verify authenticity against our public ledger. Verifiable: Email Addresses, Employee IDs and Document IDs. We don't take responsibility for interacting with anything (or anyone) that is inactive/expired or not available in our database.",
         "terms_title": "Terms & Conditions",
-        "terms_content": "General use of this website is subject to standard digital policies. However, each specific project engaged with us will be governed by its own distinct Terms & Conditions. These project-specific terms depend heavily on the task, scope, and specific situational requirements, and will be legally established in the formal contract signed by both parties prior to the commencement of any work.",
+        "terms_content": "General use of this website is subject to standard digital policies. However, each specific project engaged with us will be governed by its own distinct Terms & Conditions. These project-specific terms depend heavily on the task, scope, and specific situational requirements, and will be legally established in the formal contract signed by both parties prior to the commencement of any work.\n\nSpecific Terms and Conditions may apply to each individual product. Please refer to the corresponding website or product description for applicable policies.",
         "privacy_title": "Privacy Policy",
-        "privacy_content": "We respect your privacy. We do not sell your data. Any email or information submitted for project inquiries is kept strictly confidential and is used solely for the purpose of communicating regarding your project.",
+        "privacy_content": "We respect your privacy. We do not sell your data. Any email or information submitted for project inquiries is kept strictly confidential and is used solely for the purpose of communicating regarding your project.\n\nSpecific Terms and Conditions may apply to each individual product. Please refer to the corresponding website or product description for applicable policies.",
         "refund_title": "Refund Policy",
-        "refund_content": "We do not offer refunds once work is completed. Any project cancellation should be notified early. Cancellations may be eligible for a partial refund, heavily depending on the time and resources already spent on the project prior to the notice.",
-        "works_h2": "OUR WORKS",
-        "works_desc": "A selection of architectures deployed by our collective.",
+        "refund_content": "We do not offer refunds once work is completed. Any project cancellation should be notified early. Cancellations may be eligible for a partial refund, heavily depending on the time and resources already spent on the project prior to the notice.\n\nSpecific Terms and Conditions may apply to each individual product. Please refer to the corresponding website or product description for applicable policies.",
+        "products_h2": "OUR PRODUCTS",
+        "products_desc": "Explore our directory of free and premium tools, web apps, and extensions.",
         "career_h2": "ACCESS DENIED",
         "career_desc": "Capacity full."
     },
     "remote": {
         "verificationUrl": "https://opensheet.elk.sh/1jYnJfPR7sZ1P5sFwpQWwMnFKIJt2FNWqcUFPLmVZM2E/Sheet1",
         "careersUrl": "https://opensheet.elk.sh/13bakIus6wLbEOgKCvk9KihG41QosPp6ZdwwF8rxZoFM/Sheet1",
-        "worksUrl": "https://opensheet.elk.sh/1BpQ9Rs1rYkBIKYxU10us-2xq5yneFcRSFGxUtHk_lZs/Sheet1"
+        "productsUrl": "https://opensheet.elk.sh/1ItO6dBrgWN7Areip47q5Tx4hlTphHQj2N9wQCPVA4wA/Sheet1",
+        "servicesUrl": "https://opensheet.elk.sh/1zkuPDt7iKH2lwRKOsF37UcYgGLXgqGT-gb8Z6UUJ7wg/Sheet1"
     },
     "nav": [
         {
@@ -46,8 +45,8 @@
             "label": "Services"
         },
         {
-            "id": "works",
-            "label": "Our Works"
+            "id": "products",
+            "label": "Products"
         },
         {
             "id": "process",
@@ -100,72 +99,57 @@
     ],
     "services": [
         {
-            "title": "AI Augmented Development",
-            "icon": "Circle",
-            "gradient": "from-cyan-500 to-blue-600"
+            "title": "MVP Development",
+            "desc": "Transform your core ideas into a functional Minimum Viable Product. We build high-performance, scalable prototypes focused on essential features to validate your concept, gather user feedback, and accelerate your time-to-market.",
+            "icon": "Circle"
         },
         {
             "title": "Website Development",
-            "icon": "Circle",
-            "gradient": "from-cyan-500 to-blue-600"
-        },
-        {
-            "title": "UI/UX Design",
-            "icon": "Circle",
-            "gradient": "from-cyan-500 to-blue-600"
+            "desc": "End-to-end engineering of bespoke, responsive websites designed to elevate your brand's digital presence. Our solutions prioritize exceptional user experience, modern design standards, security, and search engine optimization.",
+            "icon": "Circle"
         },
         {
             "title": "Smart Contract Development",
-            "icon": "Circle",
-            "gradient": "from-cyan-500 to-blue-600"
+            "desc": "Design and deployment of secure, immutable, and self-executing digital agreements. We deliver rigorously audited code tailored for decentralized protocols, ensuring maximum transactional transparency and cryptographic security.",
+            "icon": "Circle"
         },
         {
-            "title": "Web3 Development",
-            "icon": "Circle",
-            "gradient": "from-cyan-500 to-blue-600"
+            "title": "Web3 Platform Development",
+            "desc": "Build next-generation decentralized ecosystems integrated with blockchain architecture. We engineer secure frameworks supporting token economics, dApps, and decentralized identity management to prepare your business for the future of the internet.",
+            "icon": "Circle"
         },
         {
             "title": "WordPress Development",
-            "icon": "Circle",
-            "gradient": "from-cyan-500 to-blue-600"
+            "desc": "Custom, high-performance content management systems engineered for scalability and ease of use. We deliver tailored themes, robust plugin architectures, and secure configurations designed for streamlined corporate operations.",
+            "icon": "Circle"
         },
         {
-            "title": "Prompt Engineering",
-            "icon": "Circle",
-            "gradient": "from-cyan-500 to-blue-600"
-        },
-        {
-            "title": "Manual Testing",
-            "icon": "Circle",
-            "gradient": "from-cyan-500 to-blue-600"
+            "title": "Manual Product Testing",
+            "desc": "Comprehensive quality assurance to ensure flawless software performance. Our engineers rigorously validate user journeys, interface behavior, and functional edge cases to guarantee a stable, bug-free deployment.",
+            "icon": "Circle"
         },
         {
             "title": "Android Development",
-            "icon": "Circle",
-            "gradient": "from-cyan-500 to-blue-600"
+            "desc": "Native and cross-platform mobile application engineering tailored specifically for the Android ecosystem. We focus on seamless device compatibility, robust architecture, and intuitive interfaces optimized for performance and engagement.",
+            "icon": "Circle"
         },
         {
             "title": "Website Audit",
-            "icon": "Circle",
-            "gradient": "from-cyan-500 to-blue-600"
+            "desc": "A deep-dive analytical assessment of your digital platform’s current health. We evaluate performance bottlenecks, security vulnerabilities, SEO infrastructure, and accessibility standards to provide a clear optimization roadmap.",
+            "icon": "Circle"
         },
         {
             "title": "Project Support",
-            "icon": "Circle",
-            "gradient": "from-cyan-500 to-blue-600"
-        },
-        {
-            "title": "And Many More...",
-            "icon": "Circle",
-            "gradient": "from-cyan-500 to-blue-600"
+            "desc": "Dedicated post-launch maintenance, technical monitoring, and operational assistance. We provide continuous support to ensure your digital products remain secure, updated, and perfectly aligned with your evolving business objectives.",
+            "icon": "Circle"
         }
-    ],
+        ],
     "processSteps": [
-        {
+                {
             "icon": "Circle",
-            "title": "AI Optimization",
-            "subtitle": "Efficiency",
-            "desc": "We utilize generative AI to handle 50-80% of the groundwork. This drastically cuts costs while maintaining elite code quality."
+            "title": "Licensed Agency",
+            "subtitle": "Trusted",
+            "desc": "We are registered in Agency. Our Provisional BBID: AA008810168T (BANGLADESH)"
         },
         {
             "icon": "Circle",
@@ -178,17 +162,11 @@
             "title": "Flexible Payments",
             "subtitle": "Global & Secure",
             "desc": "We accept various payment services like wire transfer, digital currencies, and escrow with Fiverr or Upwork via our agent profiles."
-        },
-        {
-            "icon": "Circle",
-            "title": "Registered Agency",
-            "subtitle": "Trusted",
-            "desc": "We are registered in Bangladesh. Our Provisional BBID: AA008810168T."
         }
     ],
     "verification_fallback": [
         {
-            "id": "NCS4041",
+            "id": "NCSID3044",
             "issued_to": "Md Sejabur Rahat (Lead Software Engineer)",
             "status": "ACTIVE"
         }
@@ -198,13 +176,11 @@
             "title": "NO OPENINGS RIGHT NOW"
         }
     ],
-    "works_fallback": [
+    "products_fallback": [
         {
-            "title": "FinTech Dashboard (TEST)",
-            "category": "Web Application",
-            "desc": "A high-frequency trading interface built with React and advanced data visualization libraries.",
-            "link": "#",
-            "image_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
+            "title": "Video Safe Zone Checker",
+            "desc": "See exactly what your audience sees. Preview your vertical videos with pixel-perfect TikTok & Instagram Reels overlays before you post.",
+            "link": "https://safezone.nodedcode.studio"
         }
     ]
 }
