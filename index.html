@@ -852,7 +852,7 @@
             const [isScrolled, setIsScrolled] = useState(false);
 
             useEffect(() => {
-                fetch('./config.json')
+                fetch(`./config.json?t=${Date.now()}`)
                     .then(res => res.json())
                     .then(data => { setConfig(prev => ({ ...prev, ...data, brand: { ...prev.brand, ...data.brand }, text: { ...prev.text, ...data.text }, remote: { ...prev.remote, ...data.remote } })); })
                     .catch(() => console.log("Config load failed, utilizing internal state fallback."));
