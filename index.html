@@ -857,6 +857,11 @@
                     .then(data => { setConfig(prev => ({ ...prev, ...data, brand: { ...prev.brand, ...data.brand }, text: { ...prev.text, ...data.text }, remote: { ...prev.remote, ...data.remote } })); })
                     .catch(() => console.log("Config load failed, utilizing internal state fallback."));
 
+                const hash = window.location.hash.replace('#', '');
+                if (hash && ['home', 'expertise', 'process', 'products', 'contact', 'careers', 'verify', 'terms', 'privacy', 'refund'].includes(hash)) {
+                    setActiveView(hash);
+                }
+
                 if (new URLSearchParams(window.location.search).get('verify')) { setActiveView('verify'); }
 
                 document.title = config.brand.name;
@@ -871,7 +876,7 @@
                 return () => window.removeEventListener('scroll', handleScroll);
             }, []);
 
-            const handleNav = (viewId) => { setIsMenuOpen(false); setActiveView(viewId); window.scrollTo({ top: 0, behavior: 'smooth' }); };
+            const handleNav = (viewId) => { setIsMenuOpen(false); setActiveView(viewId); window.history.pushState(null, '', '#' + viewId); window.scrollTo({ top: 0, behavior: 'smooth' }); };
 
             return (
                 <ConfigContext.Provider value={config}>
