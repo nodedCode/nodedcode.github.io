@@ -4,7 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-adsense-account" content="ca-pub-2604729085158326">
+
+    <!-- Performance Optimizations -->
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://esm.sh" crossorigin>
 
     <!-- Primary Technical SEO Meta Tags (2026-2027 Standards) -->
     <title>nodedCode Studio</title>
@@ -123,6 +128,8 @@
             background: #E86257;
             color: #FEFEFE;
         }
+
+
     </style>
 
     <!-- Security & Tracking -->
@@ -145,6 +152,8 @@
 
 <body>
     <div id="root">
+        
+
         
         <!-- Bulletproof Semantic SEO Fallback (Visually Hidden) -->
         <div style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;">
@@ -192,22 +201,24 @@
                 privacy_title: "Privacy Policy", privacy_content: "We respect your privacy. We do not sell your data. Any email or information submitted for project inquiries is kept strictly confidential and is used solely for the purpose of communicating regarding your project.\n\nSpecific Terms and Conditions may apply to each individual product. Please refer to the corresponding website or product description for applicable policies.",
                 refund_title: "Refund Policy", refund_content: "We do not offer refunds once work is completed. Any project cancellation should be notified early. Cancellations may be eligible for a partial refund, heavily depending on the time and resources already spent on the project prior to the notice.\n\nSpecific Terms and Conditions may apply to each individual product. Please refer to the corresponding website or product description for applicable policies.",
                 career_h2: "ACCESS DENIED", career_desc: "Capacity full.",
-                products_h2: "OUR PRODUCTS", products_desc: "Explore our directory of free and premium tools, web apps, and extensions."
+                products_h2: "OUR PRODUCTS", products_desc: "Explore our directory of free and premium tools, web apps, and extensions.",
+                about_title: "About Us", about_content: "We are a forward-thinking digital studio specializing in accelerated, high-performance web engineering for the modern digital space and Web3 ecosystem.\n\nOur mission is to build robust, scalable architectures that empower businesses and individuals alike. We also develop a suite of powerful tools designed to simplify complex workflows and bring ease to everyday digital operations."
             },
             remote: { verificationUrl: "https://opensheet.elk.sh/1jYnJfPR7sZ1P5sFwpQWwMnFKIJt2FNWqcUFPLmVZM2E/Sheet1", careersUrl: "https://opensheet.elk.sh/13bakIus6wLbEOgKCvk9KihG41QosPp6ZdwwF8rxZoFM/Sheet1", productsUrl: "https://opensheet.elk.sh/1ItO6dBrgWN7Areip47q5Tx4hlTphHQj2N9wQCPVA4wA/Sheet1", servicesUrl: "https://opensheet.elk.sh/1zkuPDt7iKH2lwRKOsF37UcYgGLXgqGT-gb8Z6UUJ7wg/Sheet1" },
             nav: [
                 { id: "home", label: "Home" },
-                { id: "expertise", label: "Services" },
+                { id: "services", label: "Services" },
                 { id: "products", label: "Products" },
                 { id: "process", label: "Why Us" },
                 { id: "contact", label: "Contact" }
             ],
             footerLinks: [
-                { id: "careers", label: "Careers" },
-                { id: "verify", label: "Verify Authenticity" },
+                { id: "about", label: "About Us" },
                 { id: "terms", label: "Terms & Conditions" },
-                { id: "privacy", label: "Privacy" },
-                { id: "refund", label: "Refund Policy" }
+                { id: "privacy", label: "Privacy Policy" },
+                { id: "refund", label: "Refund Policy" },
+                { id: "verify", label: "Verify Authenticity" },
+                { id: "careers", label: "Careers" }
             ],
             socials: [
                 { icon: "Linkedin", link: "https://www.linkedin.com/company/nodedCode" },
@@ -306,7 +317,7 @@
                         }}
                     />
                     
-                    <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.15] mix-blend-overlay z-10" />
+                    <div className="absolute inset-0 bg-[url('./noise.svg')] opacity-[0.15] mix-blend-overlay z-10" />
                     
                     {/* Floating Static Blobs */}
                     <div className="absolute top-[-10%] right-[-10%] w-[800px] h-[800px] bg-brand/10 rounded-full blur-[120px] mix-blend-multiply animate-[float_10s_ease-in-out_infinite] z-0" />
@@ -859,7 +870,7 @@
                     .catch(() => console.log("Config load failed, utilizing internal state fallback."));
 
                 const hash = window.location.hash.replace('#', '');
-                if (hash && ['home', 'expertise', 'process', 'products', 'contact', 'careers', 'verify', 'terms', 'privacy', 'refund'].includes(hash)) {
+                if (hash && ['home', 'services', 'process', 'products', 'contact', 'careers', 'verify', 'terms', 'privacy', 'refund', 'about'].includes(hash)) {
                     setActiveView(hash);
                 }
 
@@ -896,7 +907,7 @@
 
                                 <DesktopMenu config={config} activeView={activeView} handleNav={handleNav} />
 
-                                <button className="md:hidden text-navy p-2 relative z-50 hover:bg-black/10 rounded-full transition-colors" onClick={() => setIsMenuOpen(!isMenuOpen)}>{isMenuOpen ? <X /> : <Menu />}</button>
+                                <button aria-label="Toggle Menu" className="md:hidden text-navy p-2 relative z-50 hover:bg-black/10 rounded-full transition-colors" onClick={() => setIsMenuOpen(!isMenuOpen)}>{isMenuOpen ? <X /> : <Menu />}</button>
                             </div>
                         </nav>
 
@@ -918,7 +929,7 @@
                         
                         <main className="pt-24 flex-grow flex flex-col relative z-10">
                             {activeView === 'home' && <HomeView navigate={handleNav} />}
-                            {activeView === 'expertise' && <ExpertiseView navigate={handleNav} />}
+                            {activeView === 'services' && <ExpertiseView navigate={handleNav} />}
                             {activeView === 'process' && <ProcessView navigate={handleNav} />}
                             {activeView === 'products' && <ProductsView />}
                             {activeView === 'contact' && <ContactView />}
@@ -927,6 +938,7 @@
                             {activeView === 'terms' && <LegalView title={config.text.terms_title} content={config.text.terms_content} />}
                             {activeView === 'privacy' && <LegalView title={config.text.privacy_title} content={config.text.privacy_content} />}
                             {activeView === 'refund' && <LegalView title={config.text.refund_title} content={config.text.refund_content} />}
+                            {activeView === 'about' && <LegalView title={config.text.about_title} content={config.text.about_content} />}
                         </main>
                         
                         <footer className="py-12 px-6 border-t border-black/10 mt-auto relative z-10 bg-light/50">
@@ -935,7 +947,7 @@
                                     <div className="flex items-center justify-center md:justify-start gap-2 text-lg">
                                         <BrandLogo />
                                         <span className="text-gray-300 mx-2">|</span>
-                                        <span className="text-xs text-gray-500 font-mono">Registered BBID: AA008810168T</span>
+                                        <span className="text-xs text-gray-500 font-mono">Registered BBID: {config.brand.bbid || 'AA008810168T'}</span>
                                     </div>
                                 </div>
                                 <div className="flex flex-wrap justify-center gap-6 text-xs font-bold text-gray-500">
@@ -944,7 +956,7 @@
                                 <div className="flex gap-6 text-gray-500">
                                     {config.socials.map((social, idx) => {
                                         const Icon = ICON_MAP[social.icon] || Globe;
-                                        return <a key={idx} href={social.link} target="_blank" rel="noopener noreferrer" className="hover:text-navy hover:scale-110 transition-all"><Icon size={20} /></a>
+                                        return <a key={idx} href={social.link} aria-label={social.icon} target="_blank" rel="noopener noreferrer" className="hover:text-navy hover:scale-110 transition-all"><Icon size={20} /></a>
                                     })}
                                 </div>
                             </div>

@@ -27,7 +27,9 @@
         "products_h2": "OUR PRODUCTS",
         "products_desc": "Explore our directory of free and premium tools, web apps, and extensions.",
         "career_h2": "ACCESS DENIED",
-        "career_desc": "Capacity full."
+        "career_desc": "Capacity full.",
+        "about_title": "About Us",
+        "about_content": "We are a forward-thinking digital studio specializing in accelerated, high-performance web engineering for the modern digital space and Web3 ecosystem.\n\nOur mission is to build robust, scalable architectures that empower businesses and individuals alike. We also develop a suite of powerful tools designed to simplify complex workflows and bring ease to everyday digital operations."
     },
     "remote": {
         "verificationUrl": "https://opensheet.elk.sh/1jYnJfPR7sZ1P5sFwpQWwMnFKIJt2FNWqcUFPLmVZM2E/Sheet1",
@@ -41,7 +43,7 @@
             "label": "Home"
         },
         {
-            "id": "expertise",
+            "id": "services",
             "label": "Services"
         },
         {
@@ -59,12 +61,8 @@
     ],
     "footerLinks": [
         {
-            "id": "careers",
-            "label": "Careers"
-        },
-        {
-            "id": "verify",
-            "label": "Verify Authenticity"
+            "id": "about",
+            "label": "About Us"
         },
         {
             "id": "terms",
@@ -72,11 +70,19 @@
         },
         {
             "id": "privacy",
-            "label": "Privacy"
+            "label": "Privacy Policy"
         },
         {
             "id": "refund",
             "label": "Refund Policy"
+        },
+        {
+            "id": "verify",
+            "label": "Verify Authenticity"
+        },
+        {
+            "id": "careers",
+            "label": "Careers"
         }
     ],
     "socials": [
