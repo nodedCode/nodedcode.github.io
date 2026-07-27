@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Allow: /case-studies/
+
+Sitemap: https://nodedcode.studio/sitemap.xml
