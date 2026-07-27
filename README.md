@@ -17,21 +17,21 @@ The platform uses a decoupled architecture. Content for products, tools, and rea
 ```mermaid
 graph TD
     subgraph Client [Client Application]
-        SPA[React Application<br/>src/App.jsx]
-        Router[Navigation Controller<br/>#home, #services, #products, #read, #contact]
-        Views[View Components<br/>Products Table | Article Cards | Modal]
+        SPA["React Application<br/>src/App.jsx"]
+        Router["Navigation Controller<br/>#home, #services, #products, #read, #contact"]
+        Views["View Components<br/>Products Table, Article Cards, Modal"]
     end
 
     subgraph Data [Data Sources]
-        SheetProd[Remote Feed: Products]
-        SheetRead[Remote Feed: Read and Articles]
-        SheetVerify[Remote Feed: Verification]
-        Fallback[Local Fallback<br/>public/config.json]
+        SheetProd["Remote Feed: Products"]
+        SheetRead["Remote Feed: Read and Articles"]
+        SheetVerify["Remote Feed: Verification"]
+        Fallback["Local Fallback<br/>public/config.json"]
     end
 
     subgraph Static [Editorial and Media]
-        Articles[Article Templates<br/>public/articles/*.html]
-        Media[Studio Assets<br/>logo.jpg | favicon.ico]
+        Articles["Article Templates<br/>public/articles/*.html"]
+        Media["Studio Assets<br/>logo.jpg, favicon.ico"]
     end
 
     SheetProd -->|Fetch API| SPA
