@@ -201,7 +201,7 @@
             "title": "Article / Case Study Template",
             "author": "nodedCode Team",
             "date": "July 2026",
-            "link": "./case-studies/template.html"
+            "link": "./articles/template.html"
         }
     ],
     "read_fallback": [
@@ -209,7 +209,7 @@
             "title": "Article / Case Study Template",
             "author": "nodedCode Team",
             "date": "July 2026",
-            "link": "./case-studies/template.html"
+            "link": "./articles/template.html"
         }
     ]
 }

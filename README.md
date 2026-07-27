@@ -30,7 +30,7 @@ graph TD
     end
 
     subgraph Static [Editorial and Media]
-        Articles[Article Templates<br/>public/case-studies/*.html]
+        Articles[Article Templates<br/>public/articles/*.html]
         Media[Studio Assets<br/>logo.jpg | favicon.ico]
     end
 
@@ -50,7 +50,7 @@ graph TD
 ```text
 nodedcode.studio/
 ├── public/
-│   ├── case-studies/           # Standalone article HTML templates and published case studies
+│   ├── articles/               # Standalone article HTML templates and published case studies
 │   ├── config.json             # Core system configuration, text copy, and offline fallbacks
 │   ├── favicon.ico             # Studio favicon
 │   ├── logo.jpg                # Studio logo image
@@ -68,7 +68,7 @@ nodedcode.studio/
 
 ## Content Management
 
-The platform is designed for streamlined content updates. Products, tools, and reading materials are managed through connected Google Sheets spreadsheets. When new rows or articles are published in the sheets, the application updates automatically on client browser refresh without requiring code modifications or rebuilds. Standardized HTML templates are provided in the case-studies directory for writing standalone editorial articles and case studies.
+The platform is designed for streamlined content updates. Products, tools, and reading materials are managed through connected Google Sheets spreadsheets. When new rows or articles are published in the sheets, the application updates automatically on client browser refresh without requiring code modifications or rebuilds. Standardized HTML templates are provided in the articles directory for writing standalone editorial articles and case studies.
 
 ## Development and Build
 

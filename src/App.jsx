@@ -58,7 +58,7 @@
                     title: "Article / Case Study Template",
                     author: "nodedCode Team",
                     date: "July 2026",
-                    link: "./case-studies/template.html"
+                    link: "./articles/template.html"
                 }
             ],
             read_fallback: [
@@ -66,7 +66,7 @@
                     title: "Article / Case Study Template",
                     author: "nodedCode Team",
                     date: "July 2026",
-                    link: "./case-studies/template.html"
+                    link: "./articles/template.html"
                 }
             ]
         };
@@ -911,7 +911,7 @@
                             {activeView === 'process' && <ProcessView navigate={handleNav} />}
                             {activeView === 'products' && <ProductsView />}
                             {activeView === 'read' && <ReadView />}
-                            {activeView === 'case-studies' && <ReadView />}
+                            {(activeView === 'case-studies' || activeView === 'articles') && <ReadView />}
                             {activeView === 'contact' && <ContactView />}
                             {activeView === 'careers' && <CareerView />}
                             {activeView === 'verify' && <VerifyView />}
