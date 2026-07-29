@@ -311,9 +311,11 @@
             const config = useContext(ConfigContext);
             const [services, setServices] = useState(config.services || []);
             const [activeService, setActiveService] = useState(null);
+            const [isLoading, setIsLoading] = useState(!!(config.remote?.servicesUrl && config.remote.servicesUrl.trim() !== ""));
 
             useEffect(() => {
                 if (config.remote?.servicesUrl && config.remote.servicesUrl.trim() !== "") {
+                    setIsLoading(true);
                     fetch(config.remote.servicesUrl)
                         .then(res => res.json())
                         .then(data => {
@@ -321,9 +323,11 @@
                             if (cleanData.length > 0) setServices(cleanData);
                             else setServices(config.services || []);
                         })
-                        .catch(err => { setServices(config.services || []); });
+                        .catch(err => { setServices(config.services || []); })
+                        .finally(() => setIsLoading(false));
                 } else {
                     setServices(config.services || []);
+                    setIsLoading(false);
                 }
             }, [config.remote, config.services]);
 
@@ -331,9 +335,18 @@
                 <section className="pt-32 pb-20 px-6 relative z-10">
                     <div className="container mx-auto max-w-6xl">
                         <div className="text-center mb-24 animate-[fadeIn_0.8s_ease-out]">
-                            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-navy mb-6 tracking-tight">{config.text.expertise_h2}</h2>
+                            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-navy mb-6 tracking-tight">
+                                {config.text.expertise_h2_top || "THINGS"} <span className="text-brand">{config.text.expertise_h2_bot || "WE OFFER"}</span>
+                            </h2>
                             <div className="w-24 h-1 bg-gradient-to-r from-brand to-transparent mx-auto rounded-full" />
                         </div>
+                        {isLoading ? (
+                            <div className="text-center py-16 bg-black/5 rounded-3xl border border-black/10 max-w-xl mx-auto animate-[fadeIn_0.3s_ease-out]">
+                                <div className="w-10 h-10 border-4 border-black/10 border-t-brand rounded-full animate-spin mx-auto mb-4" />
+                                <h3 className="font-display text-xl font-bold text-navy mb-1 tracking-widest">SYNCING DATA</h3>
+                                <p className="text-gray-500 text-sm font-light">Retrieving latest records...</p>
+                            </div>
+                        ) : (
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {services.map((service, i) => {
                                 return (
@@ -353,6 +366,7 @@
                                 );
                             })}
                         </div>
+                        )}
                     </div>
                     <VirtualCard 
                         isOpen={!!activeService} 
@@ -430,9 +444,11 @@
             const [products, setProducts] = useState(config.products_fallback || []);
             const [activeProduct, setActiveProduct] = useState(null);
             const [searchQuery, setSearchQuery] = useState('');
+            const [isLoading, setIsLoading] = useState(!!(config.remote?.productsUrl && config.remote.productsUrl.trim() !== ""));
 
             useEffect(() => {
                 if (config.remote?.productsUrl && config.remote.productsUrl.trim() !== "") {
+                    setIsLoading(true);
                     fetch(config.remote.productsUrl)
                         .then(res => res.json())
                         .then(data => {
@@ -440,9 +456,11 @@
                             if (cleanData.length > 0) setProducts(cleanData);
                             else setProducts(config.products_fallback || []);
                         })
-                        .catch(err => { setProducts(config.products_fallback || []); });
+                        .catch(err => { setProducts(config.products_fallback || []); })
+                        .finally(() => setIsLoading(false));
                 } else {
                     setProducts(config.products_fallback || []);
+                    setIsLoading(false);
                 }
             }, [config.remote, config.products_fallback]);
 
@@ -456,7 +474,9 @@
                 <section className="pt-32 pb-20 px-6 min-h-[70vh] relative z-10">
                     <div className="container mx-auto max-w-6xl">
                         <div className="mb-16 text-center animate-[fadeIn_0.8s_ease-out]">
-                            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-navy mb-6 tracking-tight">{config.text.products_h2}</h2>
+                            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-navy mb-6 tracking-tight">
+                                {config.text.products_h2_top || "OUR"} <span className="text-brand">{config.text.products_h2_bot || "PRODUCTS"}</span>
+                            </h2>
                             <div className="w-24 h-1 bg-gradient-to-r from-brand to-transparent mx-auto rounded-full mb-6" />
                             <p className="text-gray-600 max-w-2xl mx-auto font-light mb-10 text-base sm:text-lg md:text-xl">{config.text.products_desc}</p>
 
@@ -479,7 +499,13 @@
                             </div>
                         </div>
 
-                        {filteredProducts.length === 0 ? (
+                        {isLoading ? (
+                            <div className="text-center py-16 bg-black/5 rounded-3xl border border-black/10 max-w-xl mx-auto animate-[fadeIn_0.3s_ease-out]">
+                                <div className="w-10 h-10 border-4 border-black/10 border-t-brand rounded-full animate-spin mx-auto mb-4" />
+                                <h3 className="font-display text-xl font-bold text-navy mb-1 tracking-widest">SYNCING DATA</h3>
+                                <p className="text-gray-500 text-sm font-light">Retrieving latest records...</p>
+                            </div>
+                        ) : filteredProducts.length === 0 ? (
                             <div className="text-center py-16 bg-black/5 rounded-3xl border border-black/10 max-w-xl mx-auto animate-[fadeIn_0.3s_ease-out]">
                                 <AlertCircle className="w-10 h-10 text-brand mx-auto mb-3" />
                                 <h3 className="font-display text-xl font-bold text-navy mb-1">NO PRODUCTS FOUND</h3>
@@ -525,10 +551,12 @@
             const fallbackData = config.read_fallback || config.case_studies_fallback || [];
             const [caseStudies, setCaseStudies] = useState(fallbackData);
             const [searchQuery, setSearchQuery] = useState('');
+            const targetUrl = config.remote?.readUrl || config.remote?.caseStudiesUrl;
+            const [isLoading, setIsLoading] = useState(!!(targetUrl && targetUrl.trim() !== ""));
 
             useEffect(() => {
-                const targetUrl = config.remote?.readUrl || config.remote?.caseStudiesUrl;
                 if (targetUrl && targetUrl.trim() !== "") {
+                    setIsLoading(true);
                     fetch(targetUrl)
                         .then(res => res.json())
                         .then(data => {
@@ -536,11 +564,13 @@
                             if (cleanData.length > 0) setCaseStudies(cleanData);
                             else setCaseStudies(fallbackData);
                         })
-                        .catch(err => { setCaseStudies(fallbackData); });
+                        .catch(err => { setCaseStudies(fallbackData); })
+                        .finally(() => setIsLoading(false));
                 } else {
                     setCaseStudies(fallbackData);
+                    setIsLoading(false);
                 }
-            }, [config.remote, fallbackData]);
+            }, [config.remote, fallbackData, targetUrl]);
 
             const filteredStudies = caseStudies.filter(item => {
                 if (!searchQuery.trim()) return true;
@@ -577,7 +607,13 @@
                             </div>
                         </div>
 
-                        {filteredStudies.length === 0 ? (
+                        {isLoading ? (
+                            <div className="text-center py-16 bg-black/5 rounded-3xl border border-black/10 max-w-xl mx-auto animate-[fadeIn_0.3s_ease-out]">
+                                <div className="w-10 h-10 border-4 border-black/10 border-t-brand rounded-full animate-spin mx-auto mb-4" />
+                                <h3 className="font-display text-xl font-bold text-navy mb-1 tracking-widest">SYNCING DATA</h3>
+                                <p className="text-gray-500 text-sm font-light">Retrieving latest records...</p>
+                            </div>
+                        ) : filteredStudies.length === 0 ? (
                             <div className="text-center py-16 bg-black/5 rounded-3xl border border-black/10 max-w-xl mx-auto animate-[fadeIn_0.3s_ease-out]">
                                 <AlertCircle className="w-10 h-10 text-brand mx-auto mb-3" />
                                 <h3 className="font-display text-xl sm:text-2xl font-bold text-navy mb-1">NO ARTICLES FOUND</h3>
@@ -645,9 +681,11 @@
         const CareerView = () => {
             const config = useContext(ConfigContext);
             const [jobs, setJobs] = useState(config.careers_fallback || []);
+            const [isLoading, setIsLoading] = useState(!!(config.remote?.careersUrl && config.remote.careersUrl.trim() !== ""));
 
             useEffect(() => {
                 if (config.remote?.careersUrl && config.remote.careersUrl.trim() !== "") {
+                    setIsLoading(true);
                     fetch(config.remote.careersUrl)
                         .then(res => res.json())
                         .then(data => {
@@ -655,11 +693,25 @@
                             if (cleanData.length > 0) setJobs(cleanData);
                             else setJobs(config.careers_fallback || []);
                         })
-                        .catch(err => { setJobs(config.careers_fallback || []); });
+                        .catch(err => { setJobs(config.careers_fallback || []); })
+                        .finally(() => setIsLoading(false));
                 } else {
                     setJobs(config.careers_fallback || []);
+                    setIsLoading(false);
                 }
             }, [config.remote, config.careers_fallback]);
+
+            if (isLoading) {
+                return (
+                    <section className="pt-32 pb-20 px-6 min-h-[60vh] flex flex-col justify-center relative z-10">
+                        <div className="text-center py-16 bg-black/5 rounded-3xl border border-black/10 max-w-xl mx-auto animate-[fadeIn_0.3s_ease-out]">
+                            <div className="w-10 h-10 border-4 border-black/10 border-t-brand rounded-full animate-spin mx-auto mb-4" />
+                            <h3 className="font-display text-xl font-bold text-navy mb-1 tracking-widest">SYNCING DATA</h3>
+                            <p className="text-gray-500 text-sm font-light">Retrieving latest records...</p>
+                        </div>
+                    </section>
+                );
+            }
 
             if (jobs.length === 0 || jobs.every(j => (j.status || '').toLowerCase() === 'inactive' || (j.status || '').toLowerCase() === 'expired')) {
                 return (
