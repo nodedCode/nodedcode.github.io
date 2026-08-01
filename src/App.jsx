@@ -237,12 +237,12 @@
                     />
 
                     {config.nav.map(item => (
-                        <button
-                            key={item.id} id={`nav-item-${item.id}`} onClick={() => handleNav(item.id)}
-                            className={`relative z-10 px-6 py-2.5 text-xs font-bold uppercase tracking-widest transition-colors duration-200 ${isMainNav && activeView === item.id ? 'text-white' : 'text-gray-600 hover:text-brand'}`}
+                        <a
+                            key={item.id} id={`nav-item-${item.id}`} href={`#${item.id}`} onClick={() => handleNav(item.id)}
+                            className={`relative z-10 px-6 py-2.5 text-xs font-bold uppercase tracking-widest transition-colors duration-200 block text-center ${isMainNav && activeView === item.id ? 'text-white' : 'text-gray-600 hover:text-brand'}`}
                         >
                             {item.label}
-                        </button>
+                        </a>
                     ))}
                 </div>
             );
@@ -787,7 +787,7 @@
                     fetch(config.remote.verificationUrl)
                         .then(res => res.json())
                         .then(data => { setDb(Array.isArray(data) ? data : (data.data || [])); })
-                        .catch(err => console.warn("Remote verification fetch failed, using fallback."))
+                        .catch(() => { /* Silent fallback on network failure */ })
                         .finally(() => setIsFetchingDb(false));
                 } else {
                     setIsFetchingDb(false);
@@ -897,12 +897,21 @@
                 fetch(`./config.json?t=${Date.now()}`)
                     .then(res => res.json())
                     .then(data => { setConfig(prev => ({ ...prev, ...data, brand: { ...prev.brand, ...data.brand }, text: { ...prev.text, ...data.text }, remote: { ...prev.remote, ...data.remote } })); })
-                    .catch(() => console.log("Config load failed, utilizing internal state fallback."));
+                    .catch(() => { /* Silent fallback to local configuration */ });
 
-                const hash = window.location.hash.replace('#', '');
-                if (hash && ['home', 'services', 'process', 'products', 'contact', 'careers', 'verify', 'terms', 'privacy', 'refund', 'about'].includes(hash)) {
-                    setActiveView(hash);
-                }
+                const handleHashChange = () => {
+                    const hash = window.location.hash.replace('#', '');
+                    if (hash && ['home', 'services', 'process', 'products', 'read', 'articles', 'case-studies', 'contact', 'careers', 'verify', 'terms', 'privacy', 'refund', 'about'].includes(hash)) {
+                        setActiveView(hash);
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } else if (!hash) {
+                        setActiveView('home');
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                };
+
+                window.addEventListener('hashchange', handleHashChange);
+                handleHashChange();
 
                 if (new URLSearchParams(window.location.search).get('verify')) { setActiveView('verify'); }
 
@@ -915,10 +924,13 @@
 
                 const handleScroll = () => setIsScrolled(window.scrollY > 20);
                 window.addEventListener('scroll', handleScroll);
-                return () => window.removeEventListener('scroll', handleScroll);
+                return () => { 
+                    window.removeEventListener('scroll', handleScroll);
+                    window.removeEventListener('hashchange', handleHashChange);
+                };
             }, []);
 
-            const handleNav = (viewId) => { setIsMenuOpen(false); setActiveView(viewId); window.history.pushState(null, '', '#' + viewId); window.scrollTo({ top: 0, behavior: 'smooth' }); };
+            const handleNav = (viewId) => { setIsMenuOpen(false); window.location.hash = viewId; };
 
             return (
                 <ConfigContext.Provider value={config}>
@@ -928,12 +940,12 @@
                         
                         <nav className={`fixed top-0 left-0 w-full z-50 px-4 sm:px-6 transition-all duration-500 ${isScrolled ? 'py-4 bg-light/85 backdrop-blur-xl border-b border-black/5 shadow-[0_4px_30px_rgba(0,0,0,0.05)]' : 'py-6 bg-transparent'}`}>
                             <div className="container mx-auto flex justify-between items-center relative">
-                                <button onClick={() => handleNav('home')} className="flex items-center gap-3 group relative z-50">
+                                <a href="#home" onClick={() => handleNav('home')} className="flex items-center gap-3 group relative z-50 no-underline">
                                     {config.brand.logoUrl ? (
                                         <img src={config.brand.logoUrl} alt={config.brand.name} className="h-8 w-auto object-contain transition-transform group-hover:scale-105" onError={(e) => { e.target.style.display = 'none'; }} />
                                     ) : null}
                                     {(!config.brand.logoUrl || config.brand.logoUrl === "") && <BrandLogo />}
-                                </button>
+                                </a>
 
                                 <DesktopMenu config={config} activeView={activeView} handleNav={handleNav} />
 
@@ -945,13 +957,14 @@
                             <div className="fixed inset-0 bg-light/95 backdrop-blur-2xl z-40 flex items-start justify-center animate-[fadeIn_0.3s_ease-out] p-4 sm:p-6 overflow-y-auto">
                                 <div className="flex flex-col gap-4 sm:gap-5 text-center w-full max-w-sm pt-28 pb-16">
                                     {config.nav.map(item => (
-                                        <button key={item.id} onClick={() => handleNav(item.id)} className={`font-display text-2xl sm:text-3xl font-bold transition-all hover:scale-105 p-3 sm:p-4 rounded-3xl ${activeView === item.id ? 'bg-brand text-light shadow-[0_10px_30px_-10px_rgba(232,98,87,0.4)]' : 'bg-black/5 text-navy hover:bg-black/10'}`}>{item.label}</button>
+                                        <a key={item.id} href={`#${item.id}`} onClick={() => handleNav(item.id)} className={`block text-center font-display text-2xl sm:text-3xl font-bold transition-all hover:scale-105 p-3 sm:p-4 rounded-3xl ${activeView === item.id ? 'bg-brand text-light shadow-[0_10px_30px_-10px_rgba(232,98,87,0.4)]' : 'bg-black/5 text-navy hover:bg-black/10'}`}>{item.label}</a>
                                     ))}
                                     <div className="w-12 h-1 bg-black/10 mx-auto my-6 rounded-full" />
                                     <div className="flex flex-wrap justify-center gap-4">
-                                        {config.footerLinks.map(item => (
-                                            <button key={item.id} onClick={() => handleNav(item.id)} className="text-xs text-gray-500 uppercase tracking-widest font-bold hover:text-navy transition-colors">{item.label}</button>
-                                        ))}
+                                        {config.footerLinks.map(item => {
+                                            const isLegal = ['about', 'terms', 'privacy', 'refund'].includes(item.id);
+                                            return <a key={item.id} href={isLegal ? `/${item.id}.html` : `#${item.id}`} onClick={(e) => { if(!isLegal) handleNav(item.id); }} className="text-xs text-gray-500 uppercase tracking-widest font-bold hover:text-navy transition-colors block">{item.label}</a>;
+                                        })}
                                     </div>
                                 </div>
                             </div>
@@ -983,7 +996,10 @@
                                     </div>
                                 </div>
                                 <div className="flex flex-wrap justify-center gap-6 text-xs font-bold text-gray-500">
-                                    {config.footerLinks.map(item => (<button key={item.id} onClick={() => handleNav(item.id)} className="hover:text-brand transition-colors uppercase tracking-widest">{item.label}</button>))}
+                                    {config.footerLinks.map(item => {
+                                        const isLegal = ['about', 'terms', 'privacy', 'refund'].includes(item.id);
+                                        return <a key={item.id} href={isLegal ? `/${item.id}.html` : `#${item.id}`} onClick={(e) => { if(!isLegal) handleNav(item.id); }} className="hover:text-brand transition-colors uppercase tracking-widest block">{item.label}</a>;
+                                    })}
                                 </div>
                                 <div className="flex gap-6 text-gray-500">
                                     {config.socials.map((social, idx) => {
