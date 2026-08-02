@@ -1,7 +1,7 @@
         import React, { useState, useEffect, useRef, createContext, useContext } from 'react';
         import ReactDOM from 'react-dom/client';
         import {
-            ArrowRight, Globe, Cpu, Zap, Github, Linkedin, Mail, Twitter, Instagram,
+            ArrowRight, Globe, Cpu, Zap, Github, Linkedin, Mail, Twitter, Instagram, Facebook,
             Menu, X, Aperture, ChevronRight, ShieldCheck, Search,
             CheckCircle, AlertCircle, Clock, Briefcase, Lock, Terminal,
             Database, Fingerprint, Bot, Rocket, Layers, Code, Hash, Smartphone,
