@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfraNode: Enterprise IT Asset & Infrastructure Dashboard | nodedCode</title>
+
+    <!-- SEO & Social Sharing Meta Tags -->
+    <meta name="description" content="An in-depth look at InfraNode, a self-hosted enterprise IT asset governance and infrastructure health dashboard built with React 19 and Supabase.">
+    <meta name="keywords" content="web engineering, software architecture, IT asset management, infrastructure dashboard, React, Supabase, RBAC, asset lifecycle, telemetry, enterprise solutions, case studies, nodedCode Studio">
+    <meta name="author" content="nodedCode Studio">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="https://nodedcode.studio/articles/infranode.html">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://nodedcode.studio/articles/infranode.html">
+    <meta property="og:title" content="InfraNode: Engineering an Enterprise IT Asset & Infrastructure Health Dashboard | nodedCode Studio">
+    <meta property="og:description" content="An in-depth look at InfraNode, a self-hosted enterprise IT asset governance and infrastructure health dashboard built with React 19 and Supabase.">
+    <meta property="og:image" content="https://nodedcode.studio/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="article:published_time" content="2026-08-07T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-08-07T00:00:00+00:00">
+    <meta property="article:author" content="https://nodedcode.studio/">
+    <meta property="article:section" content="Engineering">
+    <meta property="article:tag" content="Enterprise Software">
+    <meta property="article:tag" content="Case Study">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://nodedcode.studio/articles/infranode.html">
+    <meta property="twitter:title" content="InfraNode: Engineering an Enterprise IT Asset & Infrastructure Health Dashboard | nodedCode Studio">
+    <meta property="twitter:description" content="An in-depth look at InfraNode, a self-hosted enterprise IT asset governance and infrastructure health dashboard built with React 19 and Supabase.">
+    <meta property="twitter:image" content="https://nodedcode.studio/og-image.jpg">
+
+    <!-- JSON-LD Article Schema for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://nodedcode.studio/articles/infranode.html"
+      },
+      "headline": "InfraNode: Engineering an Enterprise IT Asset & Infrastructure Health Dashboard",
+      "description": "An in-depth look at InfraNode, a self-hosted enterprise IT asset governance and infrastructure health dashboard built with React 19 and Supabase.",
+      "author": {
+        "@type": "Organization",
+        "name": "nodedCode Studio",
+        "url": "https://nodedcode.studio/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "nodedCode Studio",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://nodedcode.studio/logo.jpg"
+        }
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://nodedcode.studio/og-image.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "datePublished": "2026-08-07",
+      "dateModified": "2026-08-07"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://nodedcode.studio/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Articles",
+        "item": "https://nodedcode.studio/#read"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "InfraNode: Engineering an Enterprise IT Asset & Infrastructure Health Dashboard",
+        "item": "https://nodedcode.studio/articles/infranode.html"
+      }]
+    }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN for Standalone Articles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#E86257',
+                        navy: '#182335',
+                        light: '#FEFEFE'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FEFEFE;
+            color: #182335;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-box {
+            background: rgba(24, 35, 53, 0.03);
+            border: 1px solid rgba(24, 35, 53, 0.08);
+            border-radius: 1.5rem;
+        }
+        .prose-custom p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: #374151;
+            font-size: 1.125rem;
+            font-weight: 300;
+        }
+        .prose-custom h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #182335;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: -0.025em;
+        }
+        .prose-custom h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #182335;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-light/80 backdrop-blur-md border-b border-navy/5 py-4 sm:py-5 px-4 sm:px-6">
+        <div class="max-w-5xl mx-auto flex items-center justify-between gap-4">
+            <a href="../#read" class="flex items-center gap-2 text-decoration-none group">
+                <span class="font-display text-lg sm:text-xl md:text-2xl tracking-tight text-navy whitespace-nowrap">
+                    <span class="text-brand font-medium">&lt;</span> <span class="font-bold">nodedCode</span> <span class="text-brand font-light mx-1">|</span> <span class="font-bold">studio</span> <span class="text-brand font-medium">&gt;</span>
+                </span>
+            </a>
+            <a href="../#read" class="text-xs sm:text-sm font-semibold tracking-wider uppercase bg-navy text-white px-4 sm:px-5 py-2 sm:py-2.5 rounded-full hover:bg-brand transition-all shadow-md shrink-0">
+                Read More
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-32 pb-24 px-6 flex-grow">
+        <article class="max-w-3xl mx-auto">
+            <!-- Article Header -->
+            <header class="mb-12 text-center">
+                <h1 class="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-navy tracking-tight mb-6 leading-tight">
+                    InfraNode: Engineering an Enterprise IT Asset & Infrastructure Health Dashboard
+                </h1>
+                <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-6 text-xs sm:text-sm text-gray-500 border-y border-navy/5 py-4 font-light">
+                    <span>By <strong class="text-navy font-medium">Riyadh Al Mahmud (ID: NCSID4042)</strong></span>
+                    <span class="hidden sm:inline">&bull;</span>
+                    <span>Published on <strong class="text-navy font-medium">August 7, 2026</strong></span>
+                </div>
+            </header>
+
+            <!-- Article Body -->
+            <div class="prose-custom">
+                <p class="text-xl font-normal text-navy leading-relaxed mb-8 border-l-4 border-brand pl-6 italic bg-brand/5 py-4 pr-4 rounded-r-2xl">
+                    Most IT teams manage their hardware through a patchwork of spreadsheets, email threads, and disconnected tools. We built <a href="https://infranode.riyadhalmahmud.tech" class="text-brand hover:underline font-semibold" target="_blank" rel="noopener noreferrer">InfraNode</a> to replace that patchwork with a single, self-hosted dashboard that tracks every asset, monitors infrastructure health in real time, and governs procurement requests from submission to fulfilment.
+                </p>
+
+                <h2>The Infrastructure Visibility Problem</h2>
+                <p>
+                    Ask any IT administrator where a specific server is in its lifecycle, and you are likely to get a long pause followed by a spreadsheet attachment. Asset registers, warranty records, and end-of-life dates live in separate files maintained by separate people. Equipment requests are submitted by email and tracked, if at all, in someone's inbox. Health monitoring is either absent or locked behind expensive enterprise tooling.
+                </p>
+                <p>
+                    The result is a team that is always reacting. A server fails because its EOL date was missed. A procurement request gets lost. A critical alert goes unnoticed because there is no single place to look.
+                </p>
+                <p>
+                    InfraNode was built to fix this. It consolidates asset inventory, lifecycle tracking, telemetry health signals, system alerts, and equipment procurement workflows into one unified, browser-based interface that any IT team can self-host with nothing more than a Supabase project.
+                </p>
+
+                <img src="https://raw.githubusercontent.com/nodedCode/nodedcode.github.io/main/public/images/InfraNode%20Dashboard%20Screenshot.png" alt="InfraNode Enterprise IT Asset & Infrastructure Health Dashboard Interface">
+
+                <h2>What is InfraNode?</h2>
+                <p>
+                    <a href="https://infranode.riyadhalmahmud.tech" class="text-brand hover:underline font-medium" target="_blank" rel="noopener noreferrer">InfraNode</a> is a full-stack, browser-based IT asset governance platform for enterprise IT teams. It provides real-time visibility into hardware inventory across 10 asset categories and 4 operational statuses, with automatic lifecycle escalation, live telemetry monitoring, and a complete equipment request workflow built in.
+                </p>
+                <p>
+                    At the heart of InfraNode is an interactive dashboard that surfaces executive-level KPIs at a glance: asset status distribution, request pipeline health, Recharts-powered charts, system alerts sorted by severity, and a live telemetry feed showing CPU temperature, voltage, and utilization per asset.
+                </p>
+                <p>
+                    We designed InfraNode to be immediately useful without configuration overhead. It runs on Supabase PostgreSQL with real-time subscriptions, so asset changes sync instantly across every active session without polling.
+                </p>
+
+                <h2>How InfraNode Works</h2>
+
+                <h3>1. Manage Your Asset Inventory</h3>
+                <p>
+                    Administrators can create, update, and decommission hardware assets from a central inventory view. Each asset is assigned a category (Server, Network, Storage, Workstation, Laptop, and more), an operational status, a location, and an End-of-Life date. Live search with debouncing, category and status filters, and one-click CSV export make the inventory practical to work with at any scale.
+                </p>
+
+                <h3>2. Let the System Watch Lifecycle Dates</h3>
+                <p>
+                    InfraNode monitors every asset's End-of-Life date automatically. Assets within 14 days of their EOL are flagged as Warning. Assets that have passed their EOL are escalated to Critical without any manual intervention. This means lifecycle risk surfaces to your dashboard before it becomes a failure.
+                </p>
+
+                <h3>3. Monitor Infrastructure Health in Real Time</h3>
+                <p>
+                    The telemetry layer pulls live hardware health data from the Supabase telemetry table continuously, tracking CPU temperature, voltage, and utilization per asset. The system alerts panel aggregates critical signals in one place, sorted by severity, so operators always know which asset needs attention first.
+                </p>
+
+                <h3>4. Handle Equipment Requests End to End</h3>
+                <p>
+                    Employees can submit equipment procurement requests directly from the dashboard, specifying item details, business justification, and urgency level. Administrators review requests through a dedicated modal and move them through a governed status flow: Pending to Approved or Rejected, and then to Fulfilled. Every decision is logged to the audit trail.
+                </p>
+
+                <div class="glass-box p-8 my-10 border-l-4 border-navy">
+                    <h3 class="!mt-0 !mb-4 text-lg font-bold text-navy uppercase tracking-wider">Key Highlights & Takeaways</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700 font-light text-base">
+                        <li>Automatic EOL lifecycle escalation with a 14-day proactive warning window, no manual monitoring required.</li>
+                        <li>Real-time asset sync via Supabase Broadcast channels, keeping every active session consistent without polling.</li>
+                        <li>Live telemetry monitoring of CPU temperature, voltage, and utilization per hardware asset.</li>
+                        <li>Full equipment request workflow with a governed Pending to Approved to Fulfilled status flow and admin review modal.</li>
+                        <li>Offline-first hybrid data layer that merges Supabase records with localStorage, ensuring zero disruption if remote connectivity is lost.</li>
+                    </ul>
+                </div>
+
+                <h2>Technical Case Study: Architecture Decisions</h2>
+                <p>
+                    InfraNode is built on React 19 with Vite, structured around single-responsibility layout, component, and context modules. Data fetching and mutation logic are encapsulated in custom hooks (<code>useAssets</code>, <code>useRequests</code>, <code>useTelemetry</code>) that stay entirely separate from presentational components. Global state, including authentication clearance, theme tokens, and toast notifications, is managed through top-level React Context providers.
+                </p>
+                <p>
+                    The backend is Supabase PostgreSQL with four tables: assets, telemetry, action_logs, and asset_requests. Row Level Security is enabled on all four. Real-time subscriptions use Supabase Broadcast channels to emit and receive asset change events instantly across all active client sessions.
+                </p>
+                <p>
+                    One deliberate design decision was the offline-first hybrid data layer. Asset hooks perform optimistic UI updates locally first, then dispatch asynchronous mutations to Supabase. If remote connectivity is lost, the application falls back to localStorage seamlessly, so operators continue working without interruption. This makes InfraNode reliable in the kinds of network environments where IT infrastructure teams actually operate.
+                </p>
+                <p>
+                    A custom toast notification system provides immediate, non-blocking feedback for every user interaction. Rather than using a third-party library, we built it in-house to match the dashboard's interaction model and keep the bundle lean.
+                </p>
+
+                <h2>Conclusion & Next Steps</h2>
+                <p>
+                    InfraNode demonstrates that unified infrastructure governance is accessible without massive software budgets. It provides real-time asset tracking and telemetry monitoring out of the box, giving IT teams complete visibility and control in a self-hosted package they can manage entirely themselves.
+                </p>
+                <p>
+                    The live demo is available at <a href="https://infranode.riyadhalmahmud.tech" target="_blank" rel="noopener noreferrer" class="text-brand font-medium hover:underline">infranode.riyadhalmahmud.tech</a> and the full source code is published on <a href="https://github.com/r7riyadh/InfraNode-Dashboard" target="_blank" rel="noopener noreferrer" class="text-brand font-medium hover:underline">GitHub</a>. Whether you are an IT manager seeking a lightweight asset tool, a developer studying real-time React architectures, or a team migrating off spreadsheets, InfraNode provides a solid foundation.
+                </p>
+            </div>
+
+            <!-- Author & Studio Bio -->
+            <div class="mt-16 pt-12 border-t border-navy/10 flex flex-col md:flex-row items-center gap-6 bg-navy/5 p-8 rounded-3xl">
+                <img src="../logo.jpg" alt="nodedCode Studio Logo" class="w-16 h-16 rounded-2xl object-cover shrink-0 shadow-md border border-black/10" />
+                <div class="text-center md:text-left">
+                    <h4 class="font-display font-bold text-lg text-navy mb-1">About nodedCode Studio</h4>
+                    <p class="text-sm text-gray-600 font-light mb-4 leading-relaxed">
+                        We are a forward-thinking digital studio specializing in high-performance web engineering and advanced technical architectures for the modern digital space and Web3 ecosystem.
+                    </p>
+                    <a href="../#contact" class="inline-flex items-center gap-2 text-xs font-bold text-brand uppercase tracking-widest hover:underline">
+                        <span>Start your project</span>
+                    </a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-navy text-white py-12 px-4 sm:px-6 mt-auto border-t border-white/10">
+        <div class="max-w-5xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-6 text-center lg:text-left">
+            <div>
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-2 text-base sm:text-lg mb-2 text-center sm:text-left sm:whitespace-nowrap">
+                    <span class="font-display tracking-tight text-white"><span class="text-brand font-medium">&lt;</span> <span class="font-bold">nodedCode</span> <span class="text-brand font-light mx-1">|</span> <span class="font-bold">studio</span> <span class="text-brand font-medium">&gt;</span></span>
+                    <span class="hidden sm:inline text-gray-500 mx-2">|</span>
+                    <span class="text-xs text-gray-400 font-mono">Registered BBID: AA008810168T</span>
+                </div>
+                <p class="text-gray-400 text-xs font-light">Tailored code. Enterprise quality. Modern web solutions.</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-6 text-xs text-gray-300 font-bold uppercase tracking-widest">
+                <a href="../#home" class="hover:text-brand transition-colors">HOME</a>
+                <a href="../#services" class="hover:text-brand transition-colors">SERVICES</a>
+                <a href="../#products" class="hover:text-brand transition-colors">PRODUCTS</a>
+                <a href="../#read" class="text-brand font-bold">READ</a>
+                <a href="../#process" class="hover:text-brand transition-colors">WHY US</a>
+                <a href="../#contact" class="hover:text-brand transition-colors">CONTACT</a>
+            </div>
+        </div>
+        <div class="max-w-5xl mx-auto mt-8 pt-8 border-t border-white/10 text-center text-[11px] text-gray-500 font-light flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>&copy; 2026 nodedCode Studio. All rights reserved.</div>
+            <div class="flex gap-4 uppercase tracking-wider font-semibold">
+                <a href="../terms.html" class="hover:text-white transition-colors">TERMS & CONDITIONS</a>
+                <a href="../privacy.html" class="hover:text-white transition-colors">PRIVACY POLICY</a>
+                <a href="../refund.html" class="hover:text-white transition-colors">REFUND POLICY</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProjectPulse: IT Project Portfolio Management Platform | nodedCode</title>
+
+    <!-- SEO & Social Sharing Meta Tags -->
+    <meta name="description" content="An in-depth look at ProjectPulse, a self-hosted ITIL-aligned IT Project Portfolio Management platform built with Next.js 15, TypeScript, and Supabase.">
+    <meta name="keywords" content="web engineering, software architecture, project portfolio management, PPM, ITIL, IT governance, Next.js, TypeScript, Supabase, RACI, risk register, budget variance, enterprise solutions, case studies, nodedCode Studio">
+    <meta name="author" content="nodedCode Studio">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="https://nodedcode.studio/articles/projectpulse.html">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://nodedcode.studio/articles/projectpulse.html">
+    <meta property="og:title" content="ProjectPulse: Engineering an ITIL-Aligned IT Project Portfolio Management Platform | nodedCode Studio">
+    <meta property="og:description" content="An in-depth look at ProjectPulse, a self-hosted ITIL-aligned IT Project Portfolio Management platform built with Next.js 15, TypeScript, and Supabase.">
+    <meta property="og:image" content="https://nodedcode.studio/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="article:published_time" content="2026-08-07T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-08-07T00:00:00+00:00">
+    <meta property="article:author" content="https://nodedcode.studio/">
+    <meta property="article:section" content="Engineering">
+    <meta property="article:tag" content="Enterprise Software">
+    <meta property="article:tag" content="Case Study">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://nodedcode.studio/articles/projectpulse.html">
+    <meta property="twitter:title" content="ProjectPulse: Engineering an ITIL-Aligned IT Project Portfolio Management Platform | nodedCode Studio">
+    <meta property="twitter:description" content="An in-depth look at ProjectPulse, a self-hosted ITIL-aligned IT Project Portfolio Management platform built with Next.js 15, TypeScript, and Supabase.">
+    <meta property="twitter:image" content="https://nodedcode.studio/og-image.jpg">
+
+    <!-- JSON-LD Article Schema for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://nodedcode.studio/articles/projectpulse.html"
+      },
+      "headline": "ProjectPulse: Engineering an ITIL-Aligned IT Project Portfolio Management Platform",
+      "description": "An in-depth look at ProjectPulse, a self-hosted ITIL-aligned IT Project Portfolio Management platform built with Next.js 15, TypeScript, and Supabase.",
+      "author": {
+        "@type": "Organization",
+        "name": "nodedCode Studio",
+        "url": "https://nodedcode.studio/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "nodedCode Studio",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://nodedcode.studio/logo.jpg"
+        }
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://nodedcode.studio/og-image.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "datePublished": "2026-08-07",
+      "dateModified": "2026-08-07"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://nodedcode.studio/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Articles",
+        "item": "https://nodedcode.studio/#read"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "ProjectPulse: Engineering an ITIL-Aligned IT Project Portfolio Management Platform",
+        "item": "https://nodedcode.studio/articles/projectpulse.html"
+      }]
+    }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN for Standalone Articles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#E86257',
+                        navy: '#182335',
+                        light: '#FEFEFE'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FEFEFE;
+            color: #182335;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-box {
+            background: rgba(24, 35, 53, 0.03);
+            border: 1px solid rgba(24, 35, 53, 0.08);
+            border-radius: 1.5rem;
+        }
+        .prose-custom p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: #374151;
+            font-size: 1.125rem;
+            font-weight: 300;
+        }
+        .prose-custom h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #182335;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: -0.025em;
+        }
+        .prose-custom h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #182335;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-light/80 backdrop-blur-md border-b border-navy/5 py-4 sm:py-5 px-4 sm:px-6">
+        <div class="max-w-5xl mx-auto flex items-center justify-between gap-4">
+            <a href="../#read" class="flex items-center gap-2 text-decoration-none group">
+                <span class="font-display text-lg sm:text-xl md:text-2xl tracking-tight text-navy whitespace-nowrap">
+                    <span class="text-brand font-medium">&lt;</span> <span class="font-bold">nodedCode</span> <span class="text-brand font-light mx-1">|</span> <span class="font-bold">studio</span> <span class="text-brand font-medium">&gt;</span>
+                </span>
+            </a>
+            <a href="../#read" class="text-xs sm:text-sm font-semibold tracking-wider uppercase bg-navy text-white px-4 sm:px-5 py-2 sm:py-2.5 rounded-full hover:bg-brand transition-all shadow-md shrink-0">
+                Read More
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-32 pb-24 px-6 flex-grow">
+        <article class="max-w-3xl mx-auto">
+            <!-- Article Header -->
+            <header class="mb-12 text-center">
+                <h1 class="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-navy tracking-tight mb-6 leading-tight">
+                    ProjectPulse: Engineering an ITIL-Aligned IT Project Portfolio Management Platform
+                </h1>
+                <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-6 text-xs sm:text-sm text-gray-500 border-y border-navy/5 py-4 font-light">
+                    <span>By <strong class="text-navy font-medium">Riyadh Al Mahmud (ID: NCSID4042)</strong></span>
+                    <span class="hidden sm:inline">&bull;</span>
+                    <span>Published on <strong class="text-navy font-medium">August 7, 2026</strong></span>
+                </div>
+            </header>
+
+            <!-- Article Body -->
+            <div class="prose-custom">
+                <p class="text-xl font-normal text-navy leading-relaxed mb-8 border-l-4 border-brand pl-6 italic bg-brand/5 py-4 pr-4 rounded-r-2xl">
+                    Most IT teams manage their project portfolios across a tangle of spreadsheets, emails, and status meetings with no single source of truth for budget health, milestone risk, or open change requests. We built <a href="https://projectpulse.riyadhalmahmud.tech" class="text-brand hover:underline font-semibold" target="_blank" rel="noopener noreferrer">ProjectPulse</a> to fix that: a self-hosted, ITIL-aligned PPM platform that gives any PMO office a unified dashboard for every project, risk, budget entry, and governance decision.
+                </p>
+
+                <h2>The Portfolio Visibility Problem</h2>
+                <p>
+                    Ask a project manager for the current budget variance across their active portfolio and you will typically get a pause, a spreadsheet, and a caveat. Project details live in disconnected places: status in one tool, budget in another, risks tracked nowhere at all. Scope changes get approved informally over email and never make it into a formal record.
+                </p>
+                <p>
+                    The result is predictable. Budgets overrun because no one is watching the ledger in real time. Milestones slip because overdue deliverables are not surfaced until a meeting. Risks go unscored and unmitigated until they become incidents. And when an auditor asks for a change log, there is nothing to show.
+                </p>
+                <p>
+                    Enterprise PPM platforms like Microsoft Project and Planview solve this, but they carry significant licensing costs and months of implementation overhead. ProjectPulse was built to close that gap: a lightweight, self-hostable alternative that tracks every project, scores every risk, enforces budget accountability, and preserves a complete audit trail, running on nothing more than a Supabase project and a web browser.
+                </p>
+
+                <img src="https://raw.githubusercontent.com/nodedCode/nodedcode.github.io/main/public/images/ProjectPulse%20Screenshot.png" alt="ProjectPulse Enterprise IT Project Portfolio Management Dashboard Interface">
+
+                <h2>What is ProjectPulse?</h2>
+                <p>
+                    <a href="https://projectpulse.riyadhalmahmud.tech" class="text-brand hover:underline font-medium" target="_blank" rel="noopener noreferrer">ProjectPulse</a> is a full-stack, browser-based IT Project Portfolio Management system for enterprise PMO offices. It centralizes the entire project lifecycle from initiation through closure in a single interface, backed by a real-time executive dashboard that surfaces portfolio health, budget variance, overdue milestones, and open risk scores at a glance.
+                </p>
+                <p>
+                    Every project receives a sequential human-readable identifier (PPM-#####) assigned by a database trigger. Actual spend is calculated automatically from an itemized budget ledger rather than manually entered, which prevents financial drift. Risk is tracked on a formal 5x5 scoring matrix where probability and impact produce a composite severity score. And every state change across the entire portfolio is recorded in an append-only audit log with actor attribution and timestamp.
+                </p>
+                <p>
+                    ProjectPulse completes an enterprise IT governance trilogy alongside InfraNode (IT asset management) and FlowDesk (IT service desk and SLA management), giving organizations a unified governance layer across assets, services, and projects.
+                </p>
+
+                <h2>How ProjectPulse Works</h2>
+
+                <h3>1. Register and Govern Projects</h3>
+                <p>
+                    Project Managers create projects from the registry, assigning health status (On Track, At Risk, Off Track, On Hold, or Completed), a planned budget, and a target timeline. The platform generates a PPM-##### identifier automatically and begins tracking actual spend as budget entries are logged to the ledger. The executive dashboard reflects portfolio health in real time with a donut chart and side-by-side budget bars for every active project.
+                </p>
+
+                <h3>2. Track Milestones and Surface Overdue Risk</h3>
+                <p>
+                    Every project carries a milestone registry with target dates and status flags. Milestones that pass their due date without completion are automatically surfaced on the executive dashboard alert watchlist, giving PMO managers immediate visibility without manual chasing. Status transitions (Not Started, In Progress, Completed) are timestamped and logged to the project event trail.
+                </p>
+
+                <h3>3. Score and Monitor Portfolio Risk</h3>
+                <p>
+                    Each risk is entered on a 5x5 scoring matrix: a probability score from 1 to 5, an impact score from 1 to 5, and a documented mitigation plan. The composite score maps to a severity band (Low, Medium, High, or Critical). All open risks across the portfolio surface on the executive dashboard ranked by score, so the highest-severity items never get buried in a project-level view.
+                </p>
+
+                <h3>4. Control Budget, Scope, and Change Requests</h3>
+                <p>
+                    Budget entries are logged as itemized ledger items per project. Variance (planned minus actual) is calculated continuously and flagged when a project exceeds its budget. Scope changes go through a formal workflow: team members submit a change request with justification and scope impact description, and PMO Admins or Project Managers approve or reject with a recorded reason. Every approval and rejection is captured in the audit log.
+                </p>
+
+                <div class="glass-box p-8 my-10 border-l-4 border-navy">
+                    <h3 class="!mt-0 !mb-4 text-lg font-bold text-navy uppercase tracking-wider">Key Highlights & Takeaways</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700 font-light text-base">
+                        <li>Real-time executive dashboard with portfolio health, budget variance charts, milestone alert watchlist, and a critical risk watchlist ranked by composite score.</li>
+                        <li>Formal 5x5 risk scoring matrix with probability, impact, severity classification, and required mitigation plans for every risk entry.</li>
+                        <li>Automatic spend rollups from an itemized budget ledger, preventing financial drift from manually entered totals.</li>
+                        <li>Governed change request workflow with structured approval, recorded rejection reasons, and full audit integration.</li>
+                        <li>RACI stakeholder matrix with database-enforced row-level scoping, so stakeholders see only the projects they are assigned to.</li>
+                    </ul>
+                </div>
+
+                <h2>Technical Case Study: Architecture Decisions</h2>
+                <p>
+                    ProjectPulse is built on the Next.js 15 App Router with TypeScript throughout. Data is fetched in React Server Components and mutated through Server Actions, which also write the corresponding audit events to the project_events table. This keeps all business logic server-side, ensures the audit trail is always consistent, and prevents client-side state from diverging from the database record.
+                </p>
+                <p>
+                    The backend is Supabase PostgreSQL organized around eight tables: profiles, projects, milestones, risks, budget_entries, stakeholders, change_requests, and project_events. Every table has Row Level Security enabled, enforced by a get_my_role() security-definer helper. Stakeholders are scoped to only their assigned projects at the database layer, not just the UI. Actual spend on each project is rolled up from budget_entries automatically rather than stored as a field, which eliminates an entire class of financial inconsistency.
+                </p>
+                <p>
+                    One deliberate governance decision was to model every destructive or consequential action as a workflow rather than a direct operation. Scope changes require a formal change request that progresses through an approval state machine. Archived projects and completed milestones are preserved rather than deleted. The audit log is strictly append-only. These patterns mean that ProjectPulse is not just a tracker but a system of record that can withstand a governance review.
+                </p>
+
+                <h2>Conclusion & Next Steps</h2>
+                <p>
+                    ProjectPulse shows that enterprise portfolio governance does not need enterprise pricing. A formal risk register, automatic budget variance tracking, RACI accountability, governed change control, and a complete audit trail can all run on a single Supabase project accessible from any web browser.
+                </p>
+                <p>
+                    The live demo is available at <a href="https://projectpulse.riyadhalmahmud.tech" target="_blank" rel="noopener noreferrer" class="text-brand font-medium hover:underline">projectpulse.riyadhalmahmud.tech</a> and the full source code is published on <a href="https://github.com/r7riyadh/ProjectPulse-PPM" target="_blank" rel="noopener noreferrer" class="text-brand font-medium hover:underline">GitHub</a>. Whether you are a PMO manager looking for a structured alternative to spreadsheet-driven tracking, a developer studying governance-first architecture, or a team that needs a single source of truth for portfolio health, ProjectPulse is a working, auditable foundation to build on.
+                </p>
+            </div>
+
+            <!-- Author & Studio Bio -->
+            <div class="mt-16 pt-12 border-t border-navy/10 flex flex-col md:flex-row items-center gap-6 bg-navy/5 p-8 rounded-3xl">
+                <img src="../logo.jpg" alt="nodedCode Studio Logo" class="w-16 h-16 rounded-2xl object-cover shrink-0 shadow-md border border-black/10" />
+                <div class="text-center md:text-left">
+                    <h4 class="font-display font-bold text-lg text-navy mb-1">About nodedCode Studio</h4>
+                    <p class="text-sm text-gray-600 font-light mb-4 leading-relaxed">
+                        We are a forward-thinking digital studio specializing in high-performance web engineering and advanced technical architectures for the modern digital space and Web3 ecosystem.
+                    </p>
+                    <a href="../#contact" class="inline-flex items-center gap-2 text-xs font-bold text-brand uppercase tracking-widest hover:underline">
+                        <span>Start your project</span>
+                    </a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-navy text-white py-12 px-4 sm:px-6 mt-auto border-t border-white/10">
+        <div class="max-w-5xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-6 text-center lg:text-left">
+            <div>
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-2 text-base sm:text-lg mb-2 text-center sm:text-left sm:whitespace-nowrap">
+                    <span class="font-display tracking-tight text-white"><span class="text-brand font-medium">&lt;</span> <span class="font-bold">nodedCode</span> <span class="text-brand font-light mx-1">|</span> <span class="font-bold">studio</span> <span class="text-brand font-medium">&gt;</span></span>
+                    <span class="hidden sm:inline text-gray-500 mx-2">|</span>
+                    <span class="text-xs text-gray-400 font-mono">Registered BBID: AA008810168T</span>
+                </div>
+                <p class="text-gray-400 text-xs font-light">Tailored code. Enterprise quality. Modern web solutions.</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-6 text-xs text-gray-300 font-bold uppercase tracking-widest">
+                <a href="../#home" class="hover:text-brand transition-colors">HOME</a>
+                <a href="../#services" class="hover:text-brand transition-colors">SERVICES</a>
+                <a href="../#products" class="hover:text-brand transition-colors">PRODUCTS</a>
+                <a href="../#read" class="text-brand font-bold">READ</a>
+                <a href="../#process" class="hover:text-brand transition-colors">WHY US</a>
+                <a href="../#contact" class="hover:text-brand transition-colors">CONTACT</a>
+            </div>
+        </div>
+        <div class="max-w-5xl mx-auto mt-8 pt-8 border-t border-white/10 text-center text-[11px] text-gray-500 font-light flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>&copy; 2026 nodedCode Studio. All rights reserved.</div>
+            <div class="flex gap-4 uppercase tracking-wider font-semibold">
+                <a href="../terms.html" class="hover:text-white transition-colors">TERMS & CONDITIONS</a>
+                <a href="../privacy.html" class="hover:text-white transition-colors">PRIVACY POLICY</a>
+                <a href="../refund.html" class="hover:text-white transition-colors">REFUND POLICY</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

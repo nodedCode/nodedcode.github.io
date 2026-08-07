@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDFCraft: Client-Side PDF Merger & Compressor | nodedCode Studio</title>
+
+    <!-- SEO & Social Sharing Meta Tags -->
+    <meta name="description" content="PDFCraft is a 100% client-side PDF merging and compression tool built with WebAssembly. Merge and compress PDFs instantly, right in your browser.">
+    <meta name="keywords" content="web engineering, PDF tools, client-side processing, WebAssembly, WASM, MuPDF, pdf-lib, TypeScript, Vite, privacy, browser tools, case studies, nodedCode Studio">
+    <meta name="author" content="nodedCode Studio">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="https://nodedcode.studio/articles/pdfcraft.html">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://nodedcode.studio/articles/pdfcraft.html">
+    <meta property="og:title" content="PDFCraft: Building a Privacy-First, Client-Side PDF Merger & Compressor | nodedCode Studio">
+    <meta property="og:description" content="PDFCraft is a 100% client-side PDF merging and compression tool built with WebAssembly. Merge and compress PDFs instantly, right in your browser.">
+    <meta property="og:image" content="https://nodedcode.studio/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="article:published_time" content="2026-08-07T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-08-07T00:00:00+00:00">
+    <meta property="article:author" content="https://nodedcode.studio/">
+    <meta property="article:section" content="Engineering">
+    <meta property="article:tag" content="Enterprise Software">
+    <meta property="article:tag" content="Case Study">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://nodedcode.studio/articles/pdfcraft.html">
+    <meta property="twitter:title" content="PDFCraft: Building a Privacy-First, Client-Side PDF Merger & Compressor | nodedCode Studio">
+    <meta property="twitter:description" content="PDFCraft is a 100% client-side PDF merging and compression tool built with WebAssembly. Merge and compress PDFs instantly, right in your browser.">
+    <meta property="twitter:image" content="https://nodedcode.studio/og-image.jpg">
+
+    <!-- JSON-LD Article Schema for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://nodedcode.studio/articles/pdfcraft.html"
+      },
+      "headline": "PDFCraft: Building a Privacy-First, Client-Side PDF Merger & Compressor",
+      "description": "PDFCraft is a 100% client-side PDF merging and compression tool built with WebAssembly. Merge and compress PDFs instantly, right in your browser.",
+      "author": {
+        "@type": "Organization",
+        "name": "nodedCode Studio",
+        "url": "https://nodedcode.studio/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "nodedCode Studio",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://nodedcode.studio/logo.jpg"
+        }
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://nodedcode.studio/og-image.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "datePublished": "2026-08-07",
+      "dateModified": "2026-08-07"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://nodedcode.studio/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Articles",
+        "item": "https://nodedcode.studio/#read"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "PDFCraft: Building a Privacy-First, Client-Side PDF Merger & Compressor",
+        "item": "https://nodedcode.studio/articles/pdfcraft.html"
+      }]
+    }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN for Standalone Articles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#E86257',
+                        navy: '#182335',
+                        light: '#FEFEFE'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FEFEFE;
+            color: #182335;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-box {
+            background: rgba(24, 35, 53, 0.03);
+            border: 1px solid rgba(24, 35, 53, 0.08);
+            border-radius: 1.5rem;
+        }
+        .prose-custom p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: #374151;
+            font-size: 1.125rem;
+            font-weight: 300;
+        }
+        .prose-custom h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #182335;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: -0.025em;
+        }
+        .prose-custom h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #182335;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-light/80 backdrop-blur-md border-b border-navy/5 py-4 sm:py-5 px-4 sm:px-6">
+        <div class="max-w-5xl mx-auto flex items-center justify-between gap-4">
+            <a href="../#read" class="flex items-center gap-2 text-decoration-none group">
+                <span class="font-display text-lg sm:text-xl md:text-2xl tracking-tight text-navy whitespace-nowrap">
+                    <span class="text-brand font-medium">&lt;</span> <span class="font-bold">nodedCode</span> <span class="text-brand font-light mx-1">|</span> <span class="font-bold">studio</span> <span class="text-brand font-medium">&gt;</span>
+                </span>
+            </a>
+            <a href="../#read" class="text-xs sm:text-sm font-semibold tracking-wider uppercase bg-navy text-white px-4 sm:px-5 py-2 sm:py-2.5 rounded-full hover:bg-brand transition-all shadow-md shrink-0">
+                Read More
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-32 pb-24 px-6 flex-grow">
+        <article class="max-w-3xl mx-auto">
+            <!-- Article Header -->
+            <header class="mb-12 text-center">
+                <h1 class="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-navy tracking-tight mb-6 leading-tight">
+                    PDFCraft: Building a Privacy-First, Client-Side PDF Merger & Compressor
+                </h1>
+                <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-6 text-xs sm:text-sm text-gray-500 border-y border-navy/5 py-4 font-light">
+                    <span>By <strong class="text-navy font-medium">Riyadh Al Mahmud (ID: NCSID4042)</strong></span>
+                    <span class="hidden sm:inline">&bull;</span>
+                    <span>Published on <strong class="text-navy font-medium">August 7, 2026</strong></span>
+                </div>
+            </header>
+
+            <!-- Article Body -->
+            <div class="prose-custom">
+                <p class="text-xl font-normal text-navy leading-relaxed mb-8 border-l-4 border-brand pl-6 italic bg-brand/5 py-4 pr-4 rounded-r-2xl">
+                    Every time you upload a PDF to a web-based tool, you are sending your document to a server you do not control. We built <a href="https://pdfcraft.riyadhalmahmud.tech/" class="text-brand hover:underline font-semibold" target="_blank" rel="noopener noreferrer">PDFCraft</a> to remove that risk entirely: a 100% client-side PDF merger and compressor that processes your files directly in the browser, with no uploads, no servers, and no privacy trade-offs.
+                </p>
+
+                <h2>The Problem With Online PDF Tools</h2>
+                <p>
+                    Merging or compressing a PDF feels like a simple task. In practice, it usually means uploading your document to a third-party service, waiting for their servers to process it, and downloading the result. For most files that is acceptable. For anything confidential, it is not.
+                </p>
+                <p>
+                    Contracts, financial statements, medical records, and legal documents pass through these services every day without users fully understanding where they go or how long they are retained. And even for non-sensitive files, the upload-process-download cycle is slower than it needs to be.
+                </p>
+                <p>
+                    We wanted a tool that was fast, worked offline, and gave users a genuine guarantee of privacy. Not a privacy policy, but a technical impossibility of leaking data. PDFCraft achieves that by doing everything inside the browser using WebAssembly.
+                </p>
+
+                <img src="https://raw.githubusercontent.com/nodedCode/nodedcode.github.io/main/public/images/PdfCraft.png" alt="PDFCraft Client-Side PDF Merger and Compressor Interface">
+
+                <h2>What is PDFCraft?</h2>
+                <p>
+                    <a href="https://pdfcraft.riyadhalmahmud.tech/" class="text-brand hover:underline font-medium" target="_blank" rel="noopener noreferrer">PDFCraft</a> is a high-performance, browser-based utility for merging multiple PDFs into one and compressing the result to your preferred quality level. It is built on TypeScript and Vite, with two specialist libraries doing the heavy lifting: pdf-lib for client-side page assembly and MuPDF compiled to WebAssembly for compression.
+                </p>
+                <p>
+                    No file data is ever sent to a server. No network requests are made with your documents. All processing happens in local browser memory, which means PDFCraft works entirely offline once it has loaded, regardless of your connection speed.
+                </p>
+
+                <h2>How PDFCraft Works</h2>
+
+                <h3>1. Add and Arrange Your Files</h3>
+                <p>
+                    Drag and drop your PDF files into the interface, or use the file browser to select them. Once loaded, you can reorder files by dragging them into the sequence you want before processing. PDFCraft preserves the order you set when assembling the final document.
+                </p>
+
+                <h3>2. Choose a Quality Preset</h3>
+                <p>
+                    Select one of three compression presets: Medium for a standard file size reduction, High for the recommended balance of quality and size, or Best for maximum quality with minimal compression. The preset controls how MuPDF optimizes each page, handles image downscaling, and strips embedded metadata from the output.
+                </p>
+
+                <h3>3. Process and Download</h3>
+                <p>
+                    Click process and PDFCraft assembles the merged document using pdf-lib, then passes it through the MuPDF WebAssembly engine for compression. When it is done, your browser downloads the result directly. The entire operation happens in memory. Nothing is written to a server, logged in a database, or retained after you close the tab.
+                </p>
+
+                <div class="glass-box p-8 my-10 border-l-4 border-navy">
+                    <h3 class="!mt-0 !mb-4 text-lg font-bold text-navy uppercase tracking-wider">Key Highlights & Takeaways</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700 font-light text-base">
+                        <li>100% client-side processing: no file uploads, no server requests, no data retention of any kind.</li>
+                        <li>WASM-powered compression via a WebAssembly build of MuPDF, enabling native-speed PDF optimization entirely in the browser.</li>
+                        <li>Three quality presets (Medium, High, Best) giving users direct control over the size-to-quality tradeoff.</li>
+                        <li>Proportional page scaling that normalizes dimensions to match the first document without distorting content or aspect ratios.</li>
+                        <li>Works fully offline once loaded, with no dependency on network connectivity during processing.</li>
+                    </ul>
+                </div>
+
+                <h2>Technical Case Study: WASM in the Browser</h2>
+                <p>
+                    The compression engine is a WebAssembly build of MuPDF, a professional-grade PDF rendering and manipulation library. Compiling MuPDF to WASM brings near-native processing speed to the browser without a server. It handles the computationally expensive work: optimizing page rendering instructions, downscaling embedded images, and stripping metadata that contributes to file bloat.
+                </p>
+                <p>
+                    The merging pipeline uses pdf-lib, a pure JavaScript library for creating and modifying PDFs in the browser. PDFCraft iterates through each input file sequentially, copies its pages into a single output document, and normalizes page dimensions against the first file in the queue. This prevents the jarring size jumps you get when merging documents with different page formats.
+                </p>
+                <p>
+                    The frontend is TypeScript with Vite as the bundler. There is no framework overhead: the UI is plain HTML and Vanilla CSS, keeping the bundle small and the load time fast. Vite's build pipeline handles the WASM module correctly out of the box, making the deployment straightforward. The drag-and-drop reordering is implemented natively without a library dependency.
+                </p>
+
+                <h2>Conclusion & Next Steps</h2>
+                <p>
+                    PDFCraft is a simple tool that does exactly what it promises: merge and compress PDFs with complete privacy, at native speed, with no server involved. It shows that WebAssembly has matured to the point where computationally intensive tasks that once required backend infrastructure can now run entirely in the browser.
+                </p>
+                <p>
+                    The live demo is available at <a href="https://pdfcraft.riyadhalmahmud.tech/" target="_blank" rel="noopener noreferrer" class="text-brand font-medium hover:underline">pdfcraft.riyadhalmahmud.tech</a> and the full source code is published on <a href="https://github.com/r7riyadh/PDFCraft" target="_blank" rel="noopener noreferrer" class="text-brand font-medium hover:underline">GitHub</a>. If you work with sensitive documents and are looking for a trustworthy local alternative to web-based PDF tools, PDFCraft is ready to use.
+                </p>
+            </div>
+
+            <!-- Author & Studio Bio -->
+            <div class="mt-16 pt-12 border-t border-navy/10 flex flex-col md:flex-row items-center gap-6 bg-navy/5 p-8 rounded-3xl">
+                <img src="../logo.jpg" alt="nodedCode Studio Logo" class="w-16 h-16 rounded-2xl object-cover shrink-0 shadow-md border border-black/10" />
+                <div class="text-center md:text-left">
+                    <h4 class="font-display font-bold text-lg text-navy mb-1">About nodedCode Studio</h4>
+                    <p class="text-sm text-gray-600 font-light mb-4 leading-relaxed">
+                        We are a forward-thinking digital studio specializing in high-performance web engineering and advanced technical architectures for the modern digital space and Web3 ecosystem.
+                    </p>
+                    <a href="../#contact" class="inline-flex items-center gap-2 text-xs font-bold text-brand uppercase tracking-widest hover:underline">
+                        <span>Start your project</span>
+                    </a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-navy text-white py-12 px-4 sm:px-6 mt-auto border-t border-white/10">
+        <div class="max-w-5xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-6 text-center lg:text-left">
+            <div>
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-2 text-base sm:text-lg mb-2 text-center sm:text-left sm:whitespace-nowrap">
+                    <span class="font-display tracking-tight text-white"><span class="text-brand font-medium">&lt;</span> <span class="font-bold">nodedCode</span> <span class="text-brand font-light mx-1">|</span> <span class="font-bold">studio</span> <span class="text-brand font-medium">&gt;</span></span>
+                    <span class="hidden sm:inline text-gray-500 mx-2">|</span>
+                    <span class="text-xs text-gray-400 font-mono">Registered BBID: AA008810168T</span>
+                </div>
+                <p class="text-gray-400 text-xs font-light">Tailored code. Enterprise quality. Modern web solutions.</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-6 text-xs text-gray-300 font-bold uppercase tracking-widest">
+                <a href="../#home" class="hover:text-brand transition-colors">HOME</a>
+                <a href="../#services" class="hover:text-brand transition-colors">SERVICES</a>
+                <a href="../#products" class="hover:text-brand transition-colors">PRODUCTS</a>
+                <a href="../#read" class="text-brand font-bold">READ</a>
+                <a href="../#process" class="hover:text-brand transition-colors">WHY US</a>
+                <a href="../#contact" class="hover:text-brand transition-colors">CONTACT</a>
+            </div>
+        </div>
+        <div class="max-w-5xl mx-auto mt-8 pt-8 border-t border-white/10 text-center text-[11px] text-gray-500 font-light flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>&copy; 2026 nodedCode Studio. All rights reserved.</div>
+            <div class="flex gap-4 uppercase tracking-wider font-semibold">
+                <a href="../terms.html" class="hover:text-white transition-colors">TERMS & CONDITIONS</a>
+                <a href="../privacy.html" class="hover:text-white transition-colors">PRIVACY POLICY</a>
+                <a href="../refund.html" class="hover:text-white transition-colors">REFUND POLICY</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlowDesk: Self-Hosted ITIL Service Desk & SLA Platform | nodedCode</title>
+
+    <!-- SEO & Social Sharing Meta Tags -->
+    <meta name="description" content="FlowDesk is a self-hosted, ITIL-aligned IT service desk and SLA governance platform built with Next.js and Supabase for modern enterprise teams.">
+    <meta name="keywords" content="web engineering, software architecture, ITSM, IT service desk, SLA governance, Next.js, TypeScript, Supabase, RBAC, ITIL, enterprise solutions, case studies, nodedCode Studio">
+    <meta name="author" content="nodedCode Studio">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="https://nodedcode.studio/articles/flowdesk.html">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://nodedcode.studio/articles/flowdesk.html">
+    <meta property="og:title" content="FlowDesk: Engineering an ITIL-Aligned IT Service Desk & SLA Governance Platform | nodedCode Studio">
+    <meta property="og:description" content="FlowDesk is a self-hosted, ITIL-aligned IT service desk and SLA governance platform built with Next.js and Supabase for modern enterprise teams.">
+    <meta property="og:image" content="https://nodedcode.studio/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="article:published_time" content="2026-08-07T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-08-07T00:00:00+00:00">
+    <meta property="article:author" content="https://nodedcode.studio/">
+    <meta property="article:section" content="Engineering">
+    <meta property="article:tag" content="Enterprise Software">
+    <meta property="article:tag" content="Case Study">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://nodedcode.studio/articles/flowdesk.html">
+    <meta property="twitter:title" content="FlowDesk: Engineering an ITIL-Aligned IT Service Desk & SLA Governance Platform | nodedCode Studio">
+    <meta property="twitter:description" content="FlowDesk is a self-hosted, ITIL-aligned IT service desk and SLA governance platform built with Next.js and Supabase for modern enterprise teams.">
+    <meta property="twitter:image" content="https://nodedcode.studio/og-image.jpg">
+
+    <!-- JSON-LD Article Schema for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://nodedcode.studio/articles/flowdesk.html"
+      },
+      "headline": "FlowDesk: Engineering an ITIL-Aligned IT Service Desk & SLA Governance Platform",
+      "description": "FlowDesk is a self-hosted, ITIL-aligned IT service desk and SLA governance platform built with Next.js and Supabase for modern enterprise teams.",
+      "author": {
+        "@type": "Organization",
+        "name": "nodedCode Studio",
+        "url": "https://nodedcode.studio/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "nodedCode Studio",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://nodedcode.studio/logo.jpg"
+        }
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://nodedcode.studio/og-image.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "datePublished": "2026-08-07",
+      "dateModified": "2026-08-07"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://nodedcode.studio/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Articles",
+        "item": "https://nodedcode.studio/#read"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "FlowDesk: Engineering an ITIL-Aligned IT Service Desk & SLA Governance Platform",
+        "item": "https://nodedcode.studio/articles/flowdesk.html"
+      }]
+    }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN for Standalone Articles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#E86257',
+                        navy: '#182335',
+                        light: '#FEFEFE'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FEFEFE;
+            color: #182335;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-box {
+            background: rgba(24, 35, 53, 0.03);
+            border: 1px solid rgba(24, 35, 53, 0.08);
+            border-radius: 1.5rem;
+        }
+        .prose-custom p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: #374151;
+            font-size: 1.125rem;
+            font-weight: 300;
+        }
+        .prose-custom h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #182335;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: -0.025em;
+        }
+        .prose-custom h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #182335;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-light/80 backdrop-blur-md border-b border-navy/5 py-4 sm:py-5 px-4 sm:px-6">
+        <div class="max-w-5xl mx-auto flex items-center justify-between gap-4">
+            <a href="../#read" class="flex items-center gap-2 text-decoration-none group">
+                <span class="font-display text-lg sm:text-xl md:text-2xl tracking-tight text-navy whitespace-nowrap">
+                    <span class="text-brand font-medium">&lt;</span> <span class="font-bold">nodedCode</span> <span class="text-brand font-light mx-1">|</span> <span class="font-bold">studio</span> <span class="text-brand font-medium">&gt;</span>
+                </span>
+            </a>
+            <a href="../#read" class="text-xs sm:text-sm font-semibold tracking-wider uppercase bg-navy text-white px-4 sm:px-5 py-2 sm:py-2.5 rounded-full hover:bg-brand transition-all shadow-md shrink-0">
+                Read More
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-32 pb-24 px-6 flex-grow">
+        <article class="max-w-3xl mx-auto">
+            <!-- Article Header -->
+            <header class="mb-12 text-center">
+                <h1 class="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-navy tracking-tight mb-6 leading-tight">
+                    FlowDesk: Engineering an ITIL-Aligned IT Service Desk & SLA Governance Platform
+                </h1>
+                <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-6 text-xs sm:text-sm text-gray-500 border-y border-navy/5 py-4 font-light">
+                    <span>By <strong class="text-navy font-medium">Riyadh Al Mahmud (ID: NCSID4042)</strong></span>
+                    <span class="hidden sm:inline">&bull;</span>
+                    <span>Published on <strong class="text-navy font-medium">August 7, 2026</strong></span>
+                </div>
+            </header>
+
+            <!-- Article Body -->
+            <div class="prose-custom">
+                <p class="text-xl font-normal text-navy leading-relaxed mb-8 border-l-4 border-brand pl-6 italic bg-brand/5 py-4 pr-4 rounded-r-2xl">
+                    Most IT teams are one missed email away from a dropped request. We built <a href="https://flowdesk.riyadhalmahmud.tech" class="text-brand hover:underline font-semibold" target="_blank" rel="noopener noreferrer">FlowDesk</a> to fix that: a self-hosted, ITIL-aligned service desk that gives any team a single, auditable system for every ticket, escalation, and SLA target, without the cost or complexity of ServiceNow or Jira Service Management.
+                </p>
+
+                <h2>The IT Support Problem</h2>
+                <p>
+                    If your team manages support requests through a shared inbox, a Slack channel, or a spreadsheet, you already know the pain. Requests slip through. Priorities get confused. And when leadership asks whether service-level targets are being met, no one can answer with confidence.
+                </p>
+
+                <p>
+                    The tools that solve this at scale come with significant licensing costs and months of implementation effort. For small and mid-size IT teams, that tradeoff rarely makes sense.
+                </p>
+                <p>
+                    FlowDesk was built to close this gap. It is a lightweight, self-hostable alternative that brings structured ticketing, tiered escalation, real-time SLA tracking, and a complete audit trail to any team that can stand up a Supabase project.
+                </p>
+
+                <img src="https://raw.githubusercontent.com/nodedCode/nodedcode.github.io/main/public/images/FlowDesk.png" alt="FlowDesk Enterprise IT Service Desk & SLA Governance Platform Interface">
+
+                <h2>What is FlowDesk?</h2>
+                <p>
+                    <a href="https://flowdesk.riyadhalmahmud.tech" class="text-brand hover:underline font-medium" target="_blank" rel="noopener noreferrer">FlowDesk</a> is a full-stack, browser-based IT service desk for internal support teams. It centralizes the entire request lifecycle in one unified interface: intake, triage, tiered escalation, SLA measurement, and resolution.
+                </p>
+                <p>
+                    At its core, FlowDesk is about visibility. A real-time operations dashboard surfaces your open backlog, SLA compliance rate, mean-time-to-resolve, and a live breach watchlist so your team always knows where to focus.
+                </p>
+                <p>
+                    We designed FlowDesk around five request types: Incident, Warranty Claim, Vendor RMA, Access Request, and Security Incident. Each type routes to the correct support team automatically, with type-specific intake fields revealed dynamically at submission so agents never collect irrelevant information.
+                </p>
+
+                <h2>How FlowDesk Works</h2>
+
+                <h3>1. Submit a Request</h3>
+                <p>
+                    Any employee can open a ticket directly from their browser. They select a request type, fill in the fields relevant to that type, and submit. FlowDesk immediately assigns a human-readable identifier (TCK-#####) via a database trigger and stamps an SLA due time based on the ticket's priority and the active SLA policy.
+                </p>
+
+                <h3>2. Triage and Assign</h3>
+                <p>
+                    L1 agents see every new ticket in a unified queue. They review the request, confirm the priority, and assign it to the appropriate support team: IT Support, Asset and Warranty, Identity and Access, or Security. Every assignment is logged to the ticket's timeline with actor identity and timestamp.
+                </p>
+
+                <h3>3. Escalate When Needed</h3>
+                <p>
+                    Complex or specialist work escalates from the L1 front desk to an L2 team. The escalation is recorded as a formal handoff on the ticket's audit trail. L2 technicians pick up the ticket within their team queue and continue from where L1 left off, with the full history visible at a glance.
+                </p>
+
+                <h3>4. Track and Resolve</h3>
+                <p>
+                    The operations dashboard gives managers a live view of backlog trends, agent workload, ticket volume by type, and a breach watchlist sorted by urgency. Once an agent resolves a ticket, the requester can confirm closure or reopen it if the issue persists. Every state change, from creation through closure, is appended to the audit log.
+                </p>
+
+                <div class="glass-box p-8 my-10 border-l-4 border-navy">
+                    <h3 class="!mt-0 !mb-4 text-lg font-bold text-navy uppercase tracking-wider">Key Highlights & Takeaways</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700 font-light text-base">
+                        <li>Full ITIL-aligned ticket lifecycle with governed status transitions, L1 to L2 escalation routing, and a chronological audit trail on every ticket.</li>
+                        <li>Real-time operations dashboard surfacing executive KPIs: open backlog, SLA compliance rate, MTTR, and a live breach and at-risk watchlist.</li>
+                        <li>Database-enforced RBAC across five clearance profiles using PostgreSQL Row Level Security, not just hidden UI elements.</li>
+                        <li>Per-priority SLA engine with automatic due-time stamping on ticket creation and real-time breach detection without manual intervention.</li>
+                        <li>Self-hostable on a single Supabase project: a cost-effective alternative to ServiceNow and Jira Service Management for small and mid-size teams.</li>
+                    </ul>
+                </div>
+
+                <h2>Technical Case Study: Architecture Decisions</h2>
+                <p>
+                    FlowDesk is built on the Next.js 14 App Router with TypeScript throughout. Data is fetched in React Server Components and mutated through Server Actions, which also write the corresponding audit events. This keeps all business logic on the server, prevents client-side tampering, and ensures the audit trail is always complete.
+                </p>
+                <p>
+                    The backend is Supabase PostgreSQL, organized around six tables: profiles, tickets, ticket_events, teams, assets, and sla_policies. Referential integrity is preserved with foreign keys, and user deletions use ON DELETE SET NULL so historical tickets survive as records rather than being cascaded away.
+                </p>
+                <p>
+                    One deliberate decision was to enforce authorization at the database layer rather than the UI. We use PostgreSQL Row Level Security with an auth_role() security-definer helper that reads the caller's confirmed role and applies per-table policies. Clearance is reflected in the UI to suppress restricted actions, but the database never trusts what the client reports. This applies least privilege and segregation of duties as database constraints, not as application-level conventions that can be bypassed.
+                </p>
+                <p>
+                    Cancellations are modeled as a soft-delete status rather than row deletion. This keeps the audit trail and aggregate metrics intact. An administrator who needs to remove a ticket for legitimate reasons must take a confirmed, logged action through a dedicated admin path, not a silent delete.
+                </p>
+
+                <h2>Conclusion & Next Steps</h2>
+                <p>
+                    FlowDesk demonstrates that robust IT governance doesn't require massive budgets or complex deployments. It delivers immediate operational visibility and ticket accountability through a streamlined, self-hosted architecture that any small to mid-sized IT team can deploy and own.
+                </p>
+                <p>
+                    The live demo is available at <a href="https://flowdesk.riyadhalmahmud.tech" target="_blank" rel="noopener noreferrer" class="text-brand font-medium hover:underline">flowdesk.riyadhalmahmud.tech</a> and the full source code is published on <a href="https://github.com/r7riyadh/FlowDesk" target="_blank" rel="noopener noreferrer" class="text-brand font-medium hover:underline">GitHub</a>. Whether you're an IT manager evaluating ITSM alternatives, a developer exploring full-stack governance patterns, or a team outgrowing a shared inbox, FlowDesk provides a solid, auditable foundation.
+                </p>
+            </div>
+
+            <!-- Author & Studio Bio -->
+            <div class="mt-16 pt-12 border-t border-navy/10 flex flex-col md:flex-row items-center gap-6 bg-navy/5 p-8 rounded-3xl">
+                <img src="../logo.jpg" alt="nodedCode Studio Logo" class="w-16 h-16 rounded-2xl object-cover shrink-0 shadow-md border border-black/10" />
+                <div class="text-center md:text-left">
+                    <h4 class="font-display font-bold text-lg text-navy mb-1">About nodedCode Studio</h4>
+                    <p class="text-sm text-gray-600 font-light mb-4 leading-relaxed">
+                        We are a forward-thinking digital studio specializing in high-performance web engineering and advanced technical architectures for the modern digital space and Web3 ecosystem.
+                    </p>
+                    <a href="../#contact" class="inline-flex items-center gap-2 text-xs font-bold text-brand uppercase tracking-widest hover:underline">
+                        <span>Start your project</span>
+                    </a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-navy text-white py-12 px-4 sm:px-6 mt-auto border-t border-white/10">
+        <div class="max-w-5xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-6 text-center lg:text-left">
+            <div>
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-2 text-base sm:text-lg mb-2 text-center sm:text-left sm:whitespace-nowrap">
+                    <span class="font-display tracking-tight text-white"><span class="text-brand font-medium">&lt;</span> <span class="font-bold">nodedCode</span> <span class="text-brand font-light mx-1">|</span> <span class="font-bold">studio</span> <span class="text-brand font-medium">&gt;</span></span>
+                    <span class="hidden sm:inline text-gray-500 mx-2">|</span>
+                    <span class="text-xs text-gray-400 font-mono">Registered BBID: AA008810168T</span>
+                </div>
+                <p class="text-gray-400 text-xs font-light">Tailored code. Enterprise quality. Modern web solutions.</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-6 text-xs text-gray-300 font-bold uppercase tracking-widest">
+                <a href="../#home" class="hover:text-brand transition-colors">HOME</a>
+                <a href="../#services" class="hover:text-brand transition-colors">SERVICES</a>
+                <a href="../#products" class="hover:text-brand transition-colors">PRODUCTS</a>
+                <a href="../#read" class="text-brand font-bold">READ</a>
+                <a href="../#process" class="hover:text-brand transition-colors">WHY US</a>
+                <a href="../#contact" class="hover:text-brand transition-colors">CONTACT</a>
+            </div>
+        </div>
+        <div class="max-w-5xl mx-auto mt-8 pt-8 border-t border-white/10 text-center text-[11px] text-gray-500 font-light flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>&copy; 2026 nodedCode Studio. All rights reserved.</div>
+            <div class="flex gap-4 uppercase tracking-wider font-semibold">
+                <a href="../terms.html" class="hover:text-white transition-colors">TERMS & CONDITIONS</a>
+                <a href="../privacy.html" class="hover:text-white transition-colors">PRIVACY POLICY</a>
+                <a href="../refund.html" class="hover:text-white transition-colors">REFUND POLICY</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
